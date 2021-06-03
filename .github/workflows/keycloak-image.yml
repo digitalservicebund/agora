@@ -19,5 +19,11 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      # - name: Checkout
-      #   uses: actions/checkout@main
+      - name: Checkout
+        uses: actions/checkout@main
+
+      - name: Build & push
+        working-directory: ./keycloak
+        run: |
+          docker build -t ghcr.io/zechmeister/agora-keycloak:latest .
+          
