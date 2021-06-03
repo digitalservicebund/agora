@@ -23,7 +23,8 @@ jobs:
         uses: actions/checkout@main
 
       - name: Build & push
-        working-directory: ./keycloak
-        run: |
-          docker build -t ghcr.io/zechmeister/agora-keycloak:latest .
-          
+        uses: docker/build-push-action@v2
+        with: 
+          context: ./keycloak
+          push: true
+          tags: ghcr.io/${{ github.repository }}/agora-keycloak:latest
