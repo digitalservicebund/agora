@@ -1,0 +1,23 @@
+name: Agora-Keycloak Docker Image
+
+on:
+  push:
+    paths:
+      - 'keycloak/**'
+      - '!keycloak/README.md'
+  workflow_dispatch:
+
+jobs:
+  agora-keycloak:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Login to ghcr.io
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      # - name: Checkout
+      #   uses: actions/checkout@main
