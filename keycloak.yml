@@ -16,7 +16,7 @@ services:
       - key-backend
 
   app:
-    image: ghcr.io/zechmeister/agora-keycloak:latest
+    image: ghcr.io/zechmeister/agora/agora-keycloak:latest
     environment:
       - DB_VENDOR=mariadb
       - DB_ADDR=db
