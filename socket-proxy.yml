@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+ socket-proxy:
+   image: tecnativa/docker-socket-proxy
+   volumes:
+     - /var/run/docker.sock:/var/run/docker.sock:ro
+   environment:
+     CONTAINERS: 1
+     NETWORKS: 1
+     SERVICES: 1
+     TASKS: 1
+   networks:
+     socket-proxy:
+       aliases:
+         - socket-proxy
+
+networks:
+ socket-proxy:
+   external: true

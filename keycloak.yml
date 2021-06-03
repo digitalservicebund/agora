@@ -1,0 +1,63 @@
+version: "3.8"
+
+services:
+  db:
+    image: mariadb
+    volumes:
+      - key_db:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: keycloak
+      MYSQL_USER: agora
+      MYSQL_PASSWORD_FILE: /run/secrets/db_password
+      MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
+    secrets:
+      - db_password
+    networks:
+      - key-backend
+
+  app:
+    image: ghcr.io/zechmeister/agora-keycloak:latest
+    environment:
+      - DB_VENDOR=mariadb
+      - DB_ADDR=db
+      - DB_DATABASE=keycloak
+      - DB_USER=agora
+      - DB_PASSWORD_FILE=/run/secrets/db_password
+      - KEYCLOAK_USER=florian_zechmeister
+      - KEYCLOAK_PASSWORD_FILE=/run/secrets/keycloak_password
+      - KEYCLOAK_DEFAULT_THEME=agora
+      - PROXY_ADDRESS_FORWARDING=true
+    secrets:
+      - db_password
+      - keycloak_password
+    # configs:
+    #   - source: standalone-ha
+    #     target: opt/jboss/keycloak/standalone/configuration/standalone-ha.xml
+    networks:
+      - edge
+      - key-backend
+    deploy:
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.keycloak.rule=Host(`nutzerinnenverwaltung.agora-oegd.de`)" 
+        - "traefik.http.services.keycloak.loadbalancer.server.port=8080"
+        - "traefik.http.routers.keycloak.tls=true" 
+        - "traefik.http.routers.keycloak.tls.certresolver=myresolver"
+        
+secrets:
+  db_password:
+    file: ./keycloak/secrets/db_password.txt
+  keycloak_password:
+    file: ./keycloak/secrets/keycloak_password.txt
+
+# configs:
+#   standalone-ha:
+#     file: ./keycloak/standalone-ha.xml
+
+volumes:
+  key_db:
+
+networks:
+  key-backend:
+  edge:
+    external: true
