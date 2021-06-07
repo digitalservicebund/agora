@@ -2,10 +2,10 @@ version: "3.8"
 
 services:
   app:
-    image: mediawiki:1.36
+    image: wiki:dev
     hostname: app
     volumes:
-      - mediawiki:/var/www/mediawiki
+      - mediawiki:/var/www/html
     networks:
       - wiki-backend
       - edge
