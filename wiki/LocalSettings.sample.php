@@ -108,7 +108,7 @@ $wgAuthenticationTokenVersion = "1";
 
 # Site upgrade key. Must be set to a string (default provided) to turn on the
 # web installer while LocalSettings.php is in place
-$wgUpgradeKey = "b66ff4c1255ddeb8";
+$wgUpgradeKey = "some_key";
 
 ## For attaching licensing metadata to pages, and displaying an
 ## appropriate copyright notice / icon. GNU Free Documentation
@@ -132,6 +132,21 @@ wfLoadSkin( 'Timeless' );
 wfLoadSkin( 'Vector' );
 
 
+# Enabled extensions. Most of the extensions are enabled by adding
+# wfLoadExtension( 'ExtensionName' );
+# to LocalSettings.php. Check specific extension documentation for more details.
+# The following extensions were automatically enabled:
+wfLoadExtension( 'OpenIDConnect' );
+wfLoadExtension( 'PluggableAuth' );
+
+
 # End of automatically generated settings.
 # Add more configuration options below.
+
+# OIDC Settings
+$wgOpenIDConnect_Config['key.localhost/auth/realms/Agora'] = [
+	'clientID' => 'wiki',
+	'clientsecret' => 'some_secret',
+	'scope' => [ 'openid', 'profile', 'email']
+];
 
