@@ -23,7 +23,7 @@ docker network create --driver overlay --scope swarm --opt encrypted --attachabl
 ```
 
 ## deploy stacks
-````
+```
 docker stack deploy -c socket-proxy.yml socket-proxy
 docker stack deploy -c keycloak.yml keycloak …
 
