@@ -1,0 +1,50 @@
+version: "3.8"
+
+services:
+  app:
+    image: mediawiki:1.36
+    hostname: app
+    volumes:
+      - mediawiki:/var/www/mediawiki
+    networks:
+      - wiki-backend
+      - edge
+    deploy:
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.wiki.rule=Host(`wiki.localhost`)"
+        - "traefik.http.services.wiki.loadbalancer.server.port=80"
+        - "traefik.http.routers.wiki.tls=true"
+        - "traefik.http.routers.wiki.tls.certresolver=myresolver"
+    secrets:
+      - source: local-settings
+        target: /var/www/html/LocalSettings.php
+
+  db:
+    image: mariadb
+    volumes:
+      - mediawiki_db:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: mediawiki
+      MYSQL_USER: agora
+      MYSQL_PASSWORD_FILE: /run/secrets/db_password
+      MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
+    networks:
+      - wiki-backend
+    secrets:
+      - db_password
+
+secrets:
+  local-settings:
+    file: ./wiki/LocalSettings.php
+  db_password:
+    file: ./wiki/secrets/db_password.txt
+
+volumes:
+  mediawiki:
+  mediawiki_db:
+
+networks:
+  wiki-backend:
+  edge:
+    external: true
