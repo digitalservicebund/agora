@@ -1,31 +1,30 @@
 package org.agora;
 
-import org.keycloak.authentication.DisplayTypeRequiredActionFactory;
 import org.keycloak.authentication.RequiredActionFactory;
 import org.keycloak.authentication.RequiredActionProvider;
 import org.keycloak.models.KeycloakSession;
 import org.keycloak.models.KeycloakSessionFactory;
 import org.keycloak.Config;
 
-public class SurveyRequiredActionFactory implements RequiredActionFactory, DisplayTypeRequiredActionFactory {
+public class SurveyRequiredActionFactory implements RequiredActionFactory {
 
 	@Override
-	public RequiredActionProvider create(KeycloakSession session) {
-			return new SurveyRequiredAction(session);
+  public String getDisplayText() {
+      return "New User Survey";
+  }
+
+	@Override
+	public RequiredActionProvider create(KeycloakSession keycloakSession) {
+			return new SurveyRequiredAction(keycloakSession);
 	}
 
 	@Override
-	public RequiredActionProvider createDisplay(KeycloakSession session, String displayType) {
-			return create(session);
-	}
-
-	@Override
-	public void init(Config.Scope config) {
+	public void init(Config.Scope scope) {
 
 	}
 
 	@Override
-	public void postInit(KeycloakSessionFactory factory) {
+	public void postInit(KeycloakSessionFactory keycloakSessionFactory) {
 
 	}
 
@@ -36,16 +35,6 @@ public class SurveyRequiredActionFactory implements RequiredActionFactory, Displ
 
 	@Override
 	public String getId() {
-			return SurveyRequiredAction.ID;
-	}
-
-	@Override
-	public String getDisplayText() {
-			return "Show link to survey";
-	}
-
-	@Override
-	public boolean isOneTimeAction() {
-			return true;
+		return "survey_required_action";
 	}
 }
