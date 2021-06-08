@@ -1,8 +1,8 @@
-From maven:3-openjdk-11 as extension-builder-1
+FROM maven:3-openjdk-11 as extension-builder-1
 COPY extensions/agora-welcome /home/app
 RUN mvn clean install -f /home/app
 
-From maven:3-openjdk-11 as extension-builder-2
+FROM maven:3-openjdk-11 as extension-builder-2
 COPY extensions/survey-required-action /home/app
 RUN mvn clean install -f /home/app
 
