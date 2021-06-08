@@ -73,8 +73,8 @@ public class AgoraWelcomeProvider implements EventListenerProvider {
       													"<ul><li>Agora-Kollaborationsplattform: <a href=\"https://agora-oegd.de\">agora-oegd.de</a></li>" + 
       													"<li>Tutorials: <a href=\"https://einrichtung.agora-oegd.de/tutorials\">einrichtung.agora-oegd.de/tutorials</a> Passwort: <u>kollaboration</u></li>" + 
       													"<li>Nutzer:innenverwaltung für Administrator:innen: <a href=\"https://agora-oegd.de/nutzerinnenverwaltung\">agora-oegd.de/nutzerinnenverwaltung</a></li></ul>" +
-      													"<p><b>Agora — die ÖGD-Kollaborationsplattform</b></p>" + 
-      													"<p>Ihre Amtsleitung hat uns gebeten, die Kollaborationsplattform Agora in Ihrem Gesundheitsamt einzurichten. Agora vereinfacht den internen, regionalen als auch länderübergreifenden Wissensaustausch und die Zusammenarbeit im Öffentlichen Gesundheitsdienst. Weitere Informationen zu Agora finden Sie unter: <a href=\"https://einrichtung.agora-oegd.de/agora\">einrichtung.agora-oegd.de</a> Passwort: <u style=\"text-decoration: underline;\">kollaboration</u>.</p>" + 
+      													"<p><b>Agora — die ÖGD-Kollaborationsplattform</b><br />" + 
+      													"Ihre Amtsleitung hat uns gebeten, die Kollaborationsplattform Agora in Ihrem Gesundheitsamt einzurichten. Agora vereinfacht den internen, regionalen als auch länderübergreifenden Wissensaustausch und die Zusammenarbeit im Öffentlichen Gesundheitsdienst. Weitere Informationen zu Agora finden Sie unter: <a href=\"https://einrichtung.agora-oegd.de/agora\">einrichtung.agora-oegd.de</a> Passwort: <u style=\"text-decoration: underline;\">kollaboration</u>.</p>" + 
 	      												"<p>Viele Grüße<br />" + 
       													"Ihr Agora-Team</p>";
 
