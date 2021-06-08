@@ -61,6 +61,7 @@ public class AgoraWelcomeProvider implements EventListenerProvider {
       													 "Agora-Kollaborationsplattform: https://agora-oegd.de" + "\n" +
       													 "Tutorials: https://einrichtung.agora-oegd.de/tutorials Passwort: kollaboration" + "\n" +
       													 "Nutzer:innenverwaltung für Administrator:innen: https://agora-oegd.de/nutzerinnenverwaltung" + "\n\n" +
+													 "<p><b>Agora — die ÖGD-Kollaborationsplattform</b></p>" +
       													 "Ihre Amtsleitung hat uns gebeten, die Kollaborationsplattform Agora in Ihrem Gesundheitsamt einzurichten. Agora vereinfacht den internen, regionalen als auch länderübergreifenden Wissensaustausch und die Zusammenarbeit im Öffentlichen Gesundheitsdienst. Weitere Informationen zu Agora finden Sie unter: https://einrichtung.agora-oegd.de/agora (Passwort: kollaboration)" + "\n\n" + 
       													 "Viele Grüße" + "\n" +
       													 "Ihr Agora-Team";
@@ -70,10 +71,11 @@ public class AgoraWelcomeProvider implements EventListenerProvider {
       													"<table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" style=\"margin: 2.3em 0;\"><tr><td align=\"center\"><a href=\"" + link + "\" style=\"display: box; color: white; font-size: 1.1em; background-color: #003F97; padding: 12px 70px; text-decoration: none; border-radius: 10px;\">Registrieren</a></td></tr></table>" + 
       													"<p>Sollte der Link nicht mehr gültig sein, wenden Sie sich bitte an die Administrator:innen in Ihrer Organisation.</p>" + 
       													"<ul><li>Agora-Kollaborationsplattform: <a href=\"https://agora-oegd.de\">agora-oegd.de</a></li>" + 
-      													"<li>Tutorials: <a href=\"https://einrichtung.agora-oegd.de/tutorials\">einrichtung.agora-oegd.de/tutorials</a> Passwort: kollaboration</li>" + 
+      													"<li>Tutorials: <a href=\"https://einrichtung.agora-oegd.de/tutorials\">einrichtung.agora-oegd.de/tutorials</a> Passwort: <u>kollaboration</u></li>" + 
       													"<li>Nutzer:innenverwaltung für Administrator:innen: <a href=\"https://agora-oegd.de/nutzerinnenverwaltung\">agora-oegd.de/nutzerinnenverwaltung</a></li></ul>" +
-      													"<p>Ihre Amtsleitung hat uns gebeten, die Kollaborationsplattform Agora in Ihrem Gesundheitsamt einzurichten. Agora vereinfacht den internen, regionalen als auch länderübergreifenden Wissensaustausch und die Zusammenarbeit im Öffentlichen Gesundheitsdienst. Weitere Informationen zu Agora finden Sie unter: <a href=\"https://einrichtung.agora-oegd.de/agora\">einrichtung.agora-oegd.de</a> (Passwort: <strong>kollaboration</strong>).</p>" + 
-      													"<p>Viele Grüße<br />" + 
+      													"<p><b>Agora — die ÖGD-Kollaborationsplattform</b></p>" + 
+      													"<p>Ihre Amtsleitung hat uns gebeten, die Kollaborationsplattform Agora in Ihrem Gesundheitsamt einzurichten. Agora vereinfacht den internen, regionalen als auch länderübergreifenden Wissensaustausch und die Zusammenarbeit im Öffentlichen Gesundheitsdienst. Weitere Informationen zu Agora finden Sie unter: <a href=\"https://einrichtung.agora-oegd.de/agora\">einrichtung.agora-oegd.de</a> Passwort: <u>kollaboration</u>.</p>" + 
+	      												"<p>Viele Grüße<br />" + 
       													"Ihr Agora-Team</p>";
 
       
