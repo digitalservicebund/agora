@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   app:
-    image: wiki:dev
+    image: ghcr.io/zechmeister/agora/agora-wiki:dev
     hostname: app
     volumes:
       - mediawiki:/var/www/html
@@ -12,10 +12,13 @@ services:
     deploy:
       labels:
         - "traefik.enable=true"
-        - "traefik.http.routers.wiki.rule=Host(`wiki.localhost`)"
+        - "traefik.http.routers.wiki.rule=Host(`wiki.agora-oegd.de`)"
         - "traefik.http.services.wiki.loadbalancer.server.port=80"
         - "traefik.http.routers.wiki.tls=true"
         - "traefik.http.routers.wiki.tls.certresolver=myresolver"
+        # Headers for x-frames
+        - "traefik.http.middlewares.frameHeaders.headers.customFrameOptionsValue=ALLOW-FROM https://agora-oegd.de"
+        - "traefik.http.routers.wiki.middlewares=frameHeaders"
     secrets:
       - source: local-settings
         target: /var/www/html/LocalSettings.php
@@ -36,7 +39,7 @@ services:
 
 secrets:
   local-settings:
-    file: ./wiki/LocalSettings.php
+    file: ./wiki/LocalSettings.staging.php
   db_password:
     file: ./wiki/secrets/db_password.txt
 
