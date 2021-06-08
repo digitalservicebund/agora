@@ -1,3 +1,8 @@
 # keycloak
-db_password.txt 
+db_password.txt
 keycloak_password.txt
+
+# wiki
+db_password.txt
+LocalSettings.php
+LocalSettings.*.php
