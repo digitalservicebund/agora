@@ -61,7 +61,7 @@ public class AgoraWelcomeProvider implements EventListenerProvider {
       													 "Agora-Kollaborationsplattform: https://agora-oegd.de" + "\n" +
       													 "Tutorials: https://einrichtung.agora-oegd.de/tutorials Passwort: kollaboration" + "\n" +
       													 "Nutzer:innenverwaltung für Administrator:innen: https://agora-oegd.de/nutzerinnenverwaltung" + "\n\n" +
-													 "<p><b>Agora — die ÖGD-Kollaborationsplattform</b></p>" +
+													 			 "Agora — die ÖGD-Kollaborationsplattform" + "\n" +
       													 "Ihre Amtsleitung hat uns gebeten, die Kollaborationsplattform Agora in Ihrem Gesundheitsamt einzurichten. Agora vereinfacht den internen, regionalen als auch länderübergreifenden Wissensaustausch und die Zusammenarbeit im Öffentlichen Gesundheitsdienst. Weitere Informationen zu Agora finden Sie unter: https://einrichtung.agora-oegd.de/agora (Passwort: kollaboration)" + "\n\n" + 
       													 "Viele Grüße" + "\n" +
       													 "Ihr Agora-Team";
@@ -74,7 +74,7 @@ public class AgoraWelcomeProvider implements EventListenerProvider {
       													"<li>Tutorials: <a href=\"https://einrichtung.agora-oegd.de/tutorials\">einrichtung.agora-oegd.de/tutorials</a> Passwort: <u>kollaboration</u></li>" + 
       													"<li>Nutzer:innenverwaltung für Administrator:innen: <a href=\"https://agora-oegd.de/nutzerinnenverwaltung\">agora-oegd.de/nutzerinnenverwaltung</a></li></ul>" +
       													"<p><b>Agora — die ÖGD-Kollaborationsplattform</b></p>" + 
-      													"<p>Ihre Amtsleitung hat uns gebeten, die Kollaborationsplattform Agora in Ihrem Gesundheitsamt einzurichten. Agora vereinfacht den internen, regionalen als auch länderübergreifenden Wissensaustausch und die Zusammenarbeit im Öffentlichen Gesundheitsdienst. Weitere Informationen zu Agora finden Sie unter: <a href=\"https://einrichtung.agora-oegd.de/agora\">einrichtung.agora-oegd.de</a> Passwort: <u>kollaboration</u>.</p>" + 
+      													"<p>Ihre Amtsleitung hat uns gebeten, die Kollaborationsplattform Agora in Ihrem Gesundheitsamt einzurichten. Agora vereinfacht den internen, regionalen als auch länderübergreifenden Wissensaustausch und die Zusammenarbeit im Öffentlichen Gesundheitsdienst. Weitere Informationen zu Agora finden Sie unter: <a href=\"https://einrichtung.agora-oegd.de/agora\">einrichtung.agora-oegd.de</a> Passwort: <u style=\"text-decoration: underline;\">kollaboration</u>.</p>" + 
 	      												"<p>Viele Grüße<br />" + 
       													"Ihr Agora-Team</p>";
 
@@ -83,7 +83,7 @@ public class AgoraWelcomeProvider implements EventListenerProvider {
       try {
           senderProvider.send(realm.getSmtpConfig(), newUser, "Willkommen bei Agora", emailPlainContent, emailHtmlContent);
       } catch (EmailException e) {
-          System.out.println("Failed to send email");
+          System.out.println("Failed to send welcome email");
       }
 
 		}
