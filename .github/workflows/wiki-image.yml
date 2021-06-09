@@ -1,0 +1,29 @@
+name: Agora-MediaWiki Docker Image
+
+on:
+  push:
+    paths:
+      - 'wiki/Dockerfile'
+  workflow_dispatch:
+
+jobs:
+  agora-keycloak:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Login to ghcr.io
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Checkout
+        uses: actions/checkout@main
+
+      - name: Build & push
+        uses: docker/build-push-action@v2
+        with: 
+          context: ./wiki
+          push: true
+          tags: ghcr.io/${{ github.repository }}/agora-wiki:latest
