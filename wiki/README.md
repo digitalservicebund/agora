@@ -3,11 +3,12 @@
 - select PluggableAuth during installation
 - select OpenID Connect during installation 
 
+- first without LocalSettings
+- remove SQLLite from wizard
 
-- add ```wfLoadExtension( 'OpenIDConnect' );``` to LocalSettings.php
-- run $ docker exec $$$ php maintenance/update.php
+- put this into Common.css:
 
-
-
-# Todo
-- combine RUN Commands
+```
+#p-logo { display: none; }
+#p-navigation { margin-top: 3em; }
+```
