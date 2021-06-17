@@ -6,3 +6,6 @@ keycloak_password.txt
 db_password.txt
 LocalSettings.php
 LocalSettings.*.php
+
+# nextcloud
+*staging.*

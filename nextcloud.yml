@@ -1,0 +1,88 @@
+version: "3.8"
+
+services:
+  db:
+    image: mariadb
+    hostname: db
+    command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW
+    env_file: nextcloud/db/staging.env
+    volumes:
+      - nextcloud-db:/var/lib/mysql
+    networks:
+      - nextcloud-backend
+
+  redis:
+    image: redis:5.0.9-alpine
+    hostname: redis
+    networks:
+      - nextcloud-backend
+
+  app:
+    image: nextcloud:21-fpm-alpine
+    hostname: app
+    env_file: nextcloud/app/staging.env
+    volumes:
+      - nextcloud-data:/var/www/html
+    networks:
+      - nextcloud-backend
+    secrets:
+      - source: agora-config
+        target: /var/www/html/config/agora.config.php
+      - source: oidc-config
+        target: /var/www/html/config/oidc.config.php
+
+  web:
+    image: nginx:stable-alpine
+    hostname: web
+    volumes:
+      - nextcloud-data:/var/www/html
+    deploy:
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.nextcloud.rule=Host(`test.agora-oegd.de`)"
+        - "traefik.http.services.nextcloud.loadbalancer.server.port=80"
+        - "traefik.http.routers.nextcloud.tls=true"
+        - "traefik.http.routers.nextcloud.tls.certresolver=myresolver"
+
+        - "traefik.http.middlewares.nextcloud-redirectregex.redirectregex.regex=^https://(.*)/.well-known/(card|cal)dav"
+        - "traefik.http.middlewares.nextcloud-redirectregex.redirectregex.replacement=https://$${1}/remote.php/dav/"
+        - "traefik.http.middlewares.nextcloud-redirectregex.redirectregex.permanent=true"
+        - "traefik.http.routers.nextcloud.middlewares=nextcloud-redirectregex"
+    networks:
+      - edge
+      - nextcloud-backend
+    configs:
+      - source: web-nginx
+        target: /etc/nginx/nginx.conf
+    secrets:
+      - source: agora-config
+        target: /var/www/html/config/agora.config.php
+      - source: oidc-config
+        target: /var/www/html/config/oidc.config.php
+
+  cron:
+    image: nextcloud:fpm-alpine
+    hostname: cron
+    volumes:
+      - nextcloud-data:/var/www/html
+    entrypoint: /cron.sh
+
+
+configs:
+  web-nginx:
+    file: ./nextcloud/web/nginx.conf
+secrets:
+  agora-config:
+    file: ./nextcloud/app/agora.staging.config.php
+  oidc-config:
+    file: ./nextcloud/app/oidc.staging.config.php
+  
+
+volumes:
+  nextcloud-db:
+  nextcloud-data:
+
+networks:
+  nextcloud-backend:
+  edge:
+    external: true
