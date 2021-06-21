@@ -1,3 +1,7 @@
+# Agora Stack
+
+consisting of 
+
 # Set up swarm
 
 ## make ingress encrypted:

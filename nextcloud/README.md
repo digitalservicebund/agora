@@ -2,6 +2,11 @@
 - first run without config/secrits mounts
 - install oidc app
 
+# OIDC setup with keycloak
+- create client, configure oidc.config.php
+- create protocol mapper for groups
+	- 'Group Membership', 'groups'
+
 
 # Updating
 - maintenance mode 
