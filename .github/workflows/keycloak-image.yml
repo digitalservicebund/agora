@@ -5,6 +5,8 @@ on:
     paths:
       - 'keycloak/**'
       - '!keycloak/README.md'
+      - '!keycloak/app/**'
+      - '!keycloak/db/**'
   workflow_dispatch:
 
 jobs:
