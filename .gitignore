@@ -9,3 +9,6 @@ LocalSettings.*.php
 
 # nextcloud
 *staging.*
+
+# forum
+dev.env
