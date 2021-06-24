@@ -1,7 +1,6 @@
 # configs
 *staging.*
+*dev.*
 
 # wiki
 wiki/secrets/db_password.txt
-LocalSettings.php
-LocalSettings.*.php
