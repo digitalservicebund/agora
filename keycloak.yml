@@ -39,10 +39,14 @@ services:
     deploy:
       labels:
         - "traefik.enable=true"
-        - "traefik.http.routers.keycloak.rule=Host(`key.localhost`)" #nutzerinnenverwaltung.test.agora-oegd.de`)" 
+        - "traefik.http.routers.keycloak.rule=Host(`nutzerinnenverwaltung.test.agora-oegd.de`)" #nutzerinnenverwaltung.test.agora-oegd.de`)" 
         - "traefik.http.services.keycloak.loadbalancer.server.port=8080"
         - "traefik.http.routers.keycloak.tls=true" 
         - "traefik.http.routers.keycloak.tls.certresolver=myresolver"
+        # Framing
+        # - "traefik.http.middlewares.frameHeaders.headers.customFrameOptionsValue=ALLOW-FROM https://test.agora-oegd.de"
+        - "traefik.http.middlewares.keycloakFrame.headers.contentSecurityPolicy=frame-ancestors https://test.agora-oegd.de"
+        - "traefik.http.routers.keycloak.middlewares=keycloakFrame"
         
 secrets:
   db_password:
