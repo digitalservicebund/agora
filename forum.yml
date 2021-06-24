@@ -1,0 +1,29 @@
+version: "3.8"
+
+services:
+  bundle:
+    image: ghcr.io/zechmeister/agora/agora-forum:latest
+    volumes:
+      - data:/shared 
+      - logs:/var/log
+    networks:
+      - edge
+    env_file: forum/staging.env
+    deploy:
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.forum.rule=Host(`forum.agora-oegd.de`)"
+        - "traefik.http.services.forum.loadbalancer.server.port=80"
+        - "traefik.http.routers.forum.tls=true"
+        - "traefik.http.routers.forum.tls.certresolver=myresolver"
+        # Headers for x-frames
+        - "traefik.http.middlewares.forumFrame.headers.contentSecurityPolicy=frame-ancestors https://agora-oegd.de"
+        - "traefik.http.routers.forum.middlewares=forumFrame"
+        
+volumes:
+  data:
+  logs:
+
+networks:
+  edge:
+    external: true
