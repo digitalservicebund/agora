@@ -1,11 +1,7 @@
-# keycloak
-db_password.txt
-keycloak_password.txt
+# configs
+*staging.*
 
 # wiki
-db_password.txt
+wiki/secrets/db_password.txt
 LocalSettings.php
 LocalSettings.*.php
-
-# nextcloud
-*staging.*

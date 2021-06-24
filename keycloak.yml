@@ -5,11 +5,7 @@ services:
     image: mariadb
     volumes:
       - key_db:/var/lib/mysql
-    environment:
-      - MYSQL_DATABASE=keycloak
-      - MYSQL_USER=agora
-      - MYSQL_PASSWORD_FILE=/run/secrets/db_password
-      - MYSQL_RANDOM_ROOT_PASSWORD='yes'
+    env-file: keycloak/db/staging.env
     secrets:
       - db_password
     networks:
@@ -17,46 +13,30 @@ services:
 
   app:
     image: ghcr.io/zechmeister/agora/agora-keycloak:latest
-    environment:
-      - DB_VENDOR=mariadb
-      - DB_ADDR=db
-      - DB_DATABASE=keycloak
-      - DB_USER=agora
-      - DB_PASSWORD_FILE=/run/secrets/db_password
-      - KEYCLOAK_USER=florian_zechmeister
-      - KEYCLOAK_PASSWORD_FILE=/run/secrets/keycloak_password
-      - KEYCLOAK_DEFAULT_THEME=agora
-      - PROXY_ADDRESS_FORWARDING=true
+    env-file: keycloak/app/staging.env
     secrets:
       - db_password
       - keycloak_password
-    # configs:
-    #   - source: standalone-ha
-    #     target: opt/jboss/keycloak/standalone/configuration/standalone-ha.xml
     networks:
       - edge
       - key-backend
     deploy:
       labels:
         - "traefik.enable=true"
-        - "traefik.http.routers.keycloak.rule=Host(`nutzerinnenverwaltung.test.agora-oegd.de`)" #nutzerinnenverwaltung.test.agora-oegd.de`)" 
+        - "traefik.http.routers.keycloak.rule=Host(`nutzerinnenverwaltung.agora-oegd.de`)" 
         - "traefik.http.services.keycloak.loadbalancer.server.port=8080"
         - "traefik.http.routers.keycloak.tls=true" 
         - "traefik.http.routers.keycloak.tls.certresolver=myresolver"
         # Framing
-        # - "traefik.http.middlewares.frameHeaders.headers.customFrameOptionsValue=ALLOW-FROM https://test.agora-oegd.de"
-        - "traefik.http.middlewares.keycloakFrame.headers.contentSecurityPolicy=frame-ancestors https://test.agora-oegd.de"
+        - "traefik.http.middlewares.keycloakFrame.headers.contentSecurityPolicy=frame-ancestors https://agora-oegd.de"
         - "traefik.http.routers.keycloak.middlewares=keycloakFrame"
         
 secrets:
   db_password:
-    file: ./keycloak/secrets/db_password.txt
+    file: ./keycloak/secrets/db_password.staging.txt
   keycloak_password:
-    file: ./keycloak/secrets/keycloak_password.txt
+    file: ./keycloak/secrets/keycloak_password.staging.txt
 
-# configs:
-#   standalone-ha:
-#     file: ./keycloak/standalone-ha.xml
 
 volumes:
   key_db:
