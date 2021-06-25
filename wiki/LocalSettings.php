@@ -138,6 +138,7 @@ wfLoadSkin( 'Vector' );
 # The following extensions were automatically enabled:
 wfLoadExtension( 'OpenIDConnect' );
 wfLoadExtension( 'PluggableAuth' );
+wfLoadExtension( 'VisualEditor' );
 
 
 # End of automatically generated settings.
