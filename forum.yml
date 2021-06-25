@@ -17,7 +17,7 @@ services:
         - "traefik.http.routers.forum.tls=true"
         - "traefik.http.routers.forum.tls.certresolver=myresolver"
         # Headers for x-frames
-        - "traefik.http.middlewares.forumFrame.headers.contentSecurityPolicy=frame-ancestors https://agora-oegd.de"
+        - "traefik.http.middlewares.forumFrame.headers.contentSecurityPolicy=frame-ancestors 'self' https://agora-oegd.de https://*.agora-oegd.de"
         - "traefik.http.routers.forum.middlewares=forumFrame"
         
 volumes:

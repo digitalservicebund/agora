@@ -28,7 +28,7 @@ services:
         - "traefik.http.routers.keycloak.tls=true" 
         - "traefik.http.routers.keycloak.tls.certresolver=myresolver"
         # Framing
-        - "traefik.http.middlewares.keycloakFrame.headers.contentSecurityPolicy=frame-ancestors 'self' https://*.agora-oegd.de"
+        - "traefik.http.middlewares.keycloakFrame.headers.contentSecurityPolicy=frame-ancestors 'self' https://agora-oegd.de https://*.agora-oegd.de"
         - "traefik.http.routers.keycloak.middlewares=keycloakFrame"
         
 secrets:
