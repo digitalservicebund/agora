@@ -44,10 +44,15 @@ services:
         - "traefik.http.routers.nextcloud.tls=true"
         - "traefik.http.routers.nextcloud.tls.certresolver=myresolver"
 
-        - "traefik.http.middlewares.nextcloud-redirectregex.redirectregex.regex=^https://(.*)/.well-known/(card|cal)dav"
-        - "traefik.http.middlewares.nextcloud-redirectregex.redirectregex.replacement=https://$${1}/remote.php/dav/"
-        - "traefik.http.middlewares.nextcloud-redirectregex.redirectregex.permanent=true"
-        - "traefik.http.routers.nextcloud.middlewares=nextcloud-redirectregex"
+        # dav
+        - "traefik.http.middlewares.nextcloud-dav.redirectregex.regex=^https://(.*)/.well-known/(card|cal)dav"
+        - "traefik.http.middlewares.nextcloud-dav.redirectregex.replacement=https://$${1}/remote.php/dav/"
+        - "traefik.http.middlewares.nextcloud-dav.redirectregex.permanent=true"
+        # /nutzerinnenverwaltung
+        - "traefik.http.middlewares.nextcloud-nutzerinnen.redirectregex.regex=^https://agora-oegd.de/nutzerinnenverwaltung"
+        - "traefik.http.middlewares.nextcloud-nutzerinnen.redirectregex.replacement=https://nutzerinnenverwaltung.agora-oegd.de/auth/admin/Agora/console"
+
+        - "traefik.http.routers.nextcloud.middlewares=nextcloud-dav,nextcloud-nutzerinnen"
     networks:
       - edge
       - nextcloud-backend
