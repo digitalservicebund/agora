@@ -51,8 +51,13 @@ services:
         # /nutzerinnenverwaltung
         - "traefik.http.middlewares.nextcloud-nutzerinnen.redirectregex.regex=^https://agora-oegd.de/nutzerinnenverwaltung"
         - "traefik.http.middlewares.nextcloud-nutzerinnen.redirectregex.replacement=https://nutzerinnenverwaltung.agora-oegd.de/auth/admin/Agora/console"
+        - "traefik.http.middlewares.nextcloud-nutzerinnen.redirectregex.permanent=true"
+        # www
+        - "traefik.http.middlewares.nextcloud-www.redirectregex.regex=^https://www.(.*)agora-oegd.de/(.*)"
+        - "traefik.http.middlewares.nextcloud-www.redirectregex.replacement=https://$${1}agora-oegd.de/$${2}"
+        - "traefik.http.middlewares.nextcloud-www.redirectregex.permanent=true"
 
-        - "traefik.http.routers.nextcloud.middlewares=nextcloud-dav,nextcloud-nutzerinnen"
+        - "traefik.http.routers.nextcloud.middlewares=nextcloud-www,nextcloud-dav,nextcloud-nutzerinnen"
     networks:
       - edge
       - nextcloud-backend
