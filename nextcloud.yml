@@ -57,7 +57,7 @@ services:
         - "traefik.http.middlewares.nextcloud-www.redirectregex.replacement=https://$${1}agora-oegd.de/$${2}"
         - "traefik.http.middlewares.nextcloud-www.redirectregex.permanent=true"
 
-        - "traefik.http.routers.nextcloud.middlewares=nextcloud-www,nextcloud-dav,nextcloud-nutzerinnen"
+        - "traefik.http.routers.nextcloud.middlewares=nextcloud-www,nextcloud-dav,nextcloud-nutzerinnen,secHeaders@file"
     networks:
       - edge
       - nextcloud-backend
