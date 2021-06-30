@@ -1,5 +1,6 @@
 FROM nextcloud:21-fpm-alpine
 
+LABEL org.opencontainers.image.source https://github.com/zechmeister/agora
 ENV PHP_MEMORY_LIMIT 1024M
 
 # tune php-fpm

@@ -8,6 +8,7 @@ RUN mvn clean install -f /home/app
 
 
 FROM jboss/keycloak:13.0.1
+LABEL org.opencontainers.image.source https://github.com/zechmeister/agora
 
 COPY agora_theme /opt/jboss/keycloak/themes/agora
 COPY profile.properties /opt/jboss/keycloak/standalone/configuration/profile.properties

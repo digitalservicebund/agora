@@ -1,4 +1,5 @@
 FROM mediawiki:1.36
+LABEL org.opencontainers.image.source https://github.com/zechmeister/agora
 
 # install PluggableAuth Extension
 RUN curl https://extdist.wmflabs.org/dist/extensions/PluggableAuth-REL1_36-78cb499.tar.gz --output PluggableAuth-REL1_36-78cb499.tar.gz && \
