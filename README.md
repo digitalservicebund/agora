@@ -27,8 +27,11 @@ docker network create --driver overlay --scope swarm --opt encrypted --attachabl
 ```
 
 ## deploy stacks
+
+docker stack deploy does not support environment variables, hence:
+
 ```
-docker stack deploy -c socket-proxy.yml socket-proxy
-docker stack deploy -c keycloak.yml keycloak …
+$ env ENV=staging docker stack deploy -c edge.yml edge 
+
 
 ```

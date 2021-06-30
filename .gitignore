@@ -1,6 +1,7 @@
 # configs
 *staging.*
 *dev.*
+*prod.*
 
 # wiki
 wiki/secrets/db_password.txt
