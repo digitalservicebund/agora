@@ -13,6 +13,7 @@ $CONFIG = array (
 	'overwrite.cli.url' => 'https://test.agora-oegd.de',
 	'overwriteprotocol' => 'https',
 	'overwritehost' => 'test.agora-oegd.de',
+	# get this from `docker inspect edge` & `docker inspect edge_reverse-proxy`
 	'trusted_proxies' => ['PROXY_IP'],
 
 	// usability 

@@ -10,7 +10,6 @@ $CONFIG = array (
 
   'oidc_create_groups' => true,
 
-  // 'oidc_login_logout_url' => '/thankyou',
   // 'oidc_login_default_quota' => '1000000',
   'oidc_login_hide_password_form' => true,
 
