@@ -5,14 +5,14 @@ services:
     image: mariadb
     hostname: db
     command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW
-    env_file: nextcloud/db/staging.env
+    env_file: nextcloud/db/$ENV.env
     volumes:
       - nextcloud-db:/var/lib/mysql
     networks:
       - nextcloud-backend
 
   redis:
-    image: redis:5.0.9-alpine
+    image: redis:5-alpine
     hostname: redis
     networks:
       - nextcloud-backend
@@ -20,7 +20,7 @@ services:
   app:
     image: ghcr.io/zechmeister/agora/agora-nextcloud:dev
     hostname: app
-    env_file: nextcloud/app/staging.env
+    env_file: nextcloud/app/$ENV.env
     volumes:
       - nextcloud-data:/var/www/html
     networks:
@@ -39,7 +39,7 @@ services:
     deploy:
       labels:
         - "traefik.enable=true"
-        - "traefik.http.routers.nextcloud.rule=Host(`test.agora-oegd.de`) || Host(`www.test.agora-oegd.de`)"
+        - "traefik.http.routers.nextcloud.rule=Host(`$HOST`) || Host(`www.$HOST`)"
         - "traefik.http.services.nextcloud.loadbalancer.server.port=80"
         - "traefik.http.routers.nextcloud.tls=true"
         - "traefik.http.routers.nextcloud.tls.certresolver=myresolver"
@@ -52,8 +52,8 @@ services:
         - "traefik.http.middlewares.nextcloud-wellknown.redirectregex.regex=^https://(.*)agora-oegd.de/.well-known/(.*)"
         - "traefik.http.middlewares.nextcloud-wellknown.redirectregex.replacement=https://$${1}agora-oegd.de/index.php/.well-known/$${2}"
         # /nutzerinnenverwaltung
-        - "traefik.http.middlewares.nextcloud-nutzerinnen.redirectregex.regex=^https://agora-oegd.de/nutzerinnenverwaltung"
-        - "traefik.http.middlewares.nextcloud-nutzerinnen.redirectregex.replacement=https://nutzerinnenverwaltung.agora-oegd.de/auth/admin/Agora/console"
+        - "traefik.http.middlewares.nextcloud-nutzerinnen.redirectregex.regex=^https://$HOST/nutzerinnenverwaltung"
+        - "traefik.http.middlewares.nextcloud-nutzerinnen.redirectregex.replacement=https://nutzerinnenverwaltung.$HOST/auth/admin/Agora/console"
         # www
         - "traefik.http.middlewares.nextcloud-www.redirectregex.regex=^https://www.(.*)agora-oegd.de/(.*)"
         - "traefik.http.middlewares.nextcloud-www.redirectregex.replacement=https://$${1}agora-oegd.de/$${2}"
@@ -71,12 +71,12 @@ services:
       - source: oidc-config
         target: /var/www/html/config/oidc.config.php
 
-  cron:
-    image: nextcloud:fpm-alpine
-    hostname: cron
-    volumes:
-      - nextcloud-data:/var/www/html
-    entrypoint: /cron.sh
+  # cron:
+  #   image: nextcloud:fpm-alpine
+  #   hostname: cron
+  #   volumes:
+  #     - nextcloud-data:/var/www/html
+  #   entrypoint: /cron.sh
 
 
 configs:
@@ -84,9 +84,9 @@ configs:
     file: ./nextcloud/web/nginx.conf
 secrets:
   agora-config:
-    file: ./nextcloud/app/agora.staging.config.php
+    file: ./nextcloud/app/agora.$ENV.config.php
   oidc-config:
-    file: ./nextcloud/app/oidc.staging.config.php
+    file: ./nextcloud/app/oidc.$ENV.config.php
   
 
 volumes:
