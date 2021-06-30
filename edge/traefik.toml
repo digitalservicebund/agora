@@ -1,6 +1,3 @@
-# [api]
-	# debug = true
-
 [log]
 	filePath = "/var/log/traefik.log"
 	format = "json"
@@ -10,6 +7,7 @@
 	filePath = "/var/log/traefik_access.log"
 	format = "json"
 	bufferingSize = 100
+	# uncommend for debugging
 	# [accessLog.fields]
 	# 	defaultMode = "keep"
 	# 	[accessLog.fields.headers]
@@ -27,6 +25,9 @@
 
 	[entryPoints.websecure]
 		address = ":443"
+		# set forwardedHeaders if traefik sits behind another router/firewall
+		#[entryPoints.websecure.forwardedHeaders]
+		#	trustedIPs = ["99.99.99.99"]
 
 [providers]
 	[providers.docker]
