@@ -42,7 +42,7 @@ secrets:
   local-settings:
     file: ./wiki/LocalSettings.$ENV.php
   db_password:
-    file: ./wiki/db_password.staging.txt
+    file: ./wiki/db_password.$ENV.txt
 
 volumes:
   mediawiki:
