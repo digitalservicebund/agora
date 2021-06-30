@@ -9,6 +9,7 @@
 [accessLog]
 	filePath = "/var/log/traefik_access.log"
 	format = "json"
+	bufferingSize = 100
 	# [accessLog.fields]
 	# 	defaultMode = "keep"
 	# 	[accessLog.fields.headers]
