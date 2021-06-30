@@ -10,6 +10,8 @@ http:
         stsIncludeSubdomains: true
         stsPreload: true
         stsSeconds: 31536000
-        customRequestHeaders:
+        customResponseHeaders:
+          X-Robots-Tags: "none"
+          X-Download-Options: "noopen"
+          X-Permitted-Cross-Domain-Policies: "none"
           X-Frame-Options: "SAMEORIGIN"
-        customFrameOptionsValue: "SAMEORIGIN"
