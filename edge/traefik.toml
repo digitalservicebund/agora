@@ -43,7 +43,7 @@
 
 # Let's Encrypt 
 [certificatesResolvers.myresolver.acme]
- email = "florian.zechmeister@4germany.org"
+ email = "mail@example.com"
  storage = "letsencrypt/acme.json"
  [certificatesResolvers.myresolver.acme.httpChallenge]
    entryPoint = "web"

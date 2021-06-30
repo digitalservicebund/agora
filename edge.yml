@@ -25,7 +25,7 @@ services:
 
 configs:
   traefik:
-    file: edge/traefik.toml
+    file: edge/traefik.staging.toml
   dynamic:
     file: edge/dynamic.yml
 
