@@ -28,10 +28,11 @@ docker network create --driver overlay --scope swarm --opt encrypted --attachabl
 
 ## deploy stacks
 
-docker stack deploy does not support environment variables, hence:
+docker stack deploy does not support environment variables, hence for production:
 
 ```
-$ env ENV=staging docker stack deploy -c edge.yml edge 
-
+$ 
+$ env ENV=prod HOST=agora-oegd.de stack deploy -c edge.yml edge 
+$ env ENV=prod HOST=agora-oegd.de docker stack deploy -c wiki.yml wiki
 
 ```
