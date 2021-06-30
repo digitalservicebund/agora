@@ -18,7 +18,7 @@ services:
       - nextcloud-backend
 
   app:
-    image: nextcloud:21-fpm-alpine
+    image: ghcr.io/zechmeister/agora/agora-nextcloud:dev
     hostname: app
     env_file: nextcloud/app/staging.env
     volumes:
