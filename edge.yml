@@ -5,6 +5,7 @@ services:
     image: traefik:v2.4
     volumes:
       - acme:/letsencrypt
+      - logs:/var/log
     ports:
       - target: 80
         published: 80
@@ -25,7 +26,7 @@ services:
 
 configs:
   traefik:
-    file: edge/traefik.$ENV.toml
+    file: edge/traefik.$ENVmo.toml
   dynamic:
     file: edge/dynamic.yml
 
@@ -37,3 +38,4 @@ networks:
 
 volumes:
   acme:
+  logs:
