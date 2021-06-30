@@ -26,7 +26,7 @@ services:
 
 configs:
   traefik:
-    file: edge/traefik.$ENVmo.toml
+    file: edge/traefik.$ENV.toml
   dynamic:
     file: edge/dynamic.yml
 
