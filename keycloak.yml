@@ -5,7 +5,7 @@ services:
     image: mariadb
     volumes:
       - key_db:/var/lib/mysql
-    env_file: keycloak/db/staging.env
+    env_file: keycloak/db/$ENV.env
     secrets:
       - db_password
     networks:
@@ -13,7 +13,7 @@ services:
 
   app:
     image: ghcr.io/zechmeister/agora/agora-keycloak:latest
-    env_file: keycloak/app/staging.env
+    env_file: keycloak/app/$ENV.env
     secrets:
       - db_password
       - keycloak_password
@@ -23,7 +23,7 @@ services:
     deploy:
       labels:
         - "traefik.enable=true"
-        - "traefik.http.routers.keycloak.rule=Host(`nutzerinnenverwaltung.test.agora-oegd.de`)" 
+        - "traefik.http.routers.keycloak.rule=Host(`nutzerinnenverwaltung.$HOST`)" 
         - "traefik.http.services.keycloak.loadbalancer.server.port=8080"
         - "traefik.http.routers.keycloak.tls=true" 
         - "traefik.http.routers.keycloak.tls.certresolver=myresolver"
@@ -33,9 +33,9 @@ services:
         
 secrets:
   db_password:
-    file: ./keycloak/db/db_password.staging.txt
+    file: ./keycloak/db/db_password.$ENV.txt
   keycloak_password:
-    file: ./keycloak/app/keycloak_password.staging.txt
+    file: ./keycloak/app/keycloak_password.$ENV.txt
 
 
 volumes:
