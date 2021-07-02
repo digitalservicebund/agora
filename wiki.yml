@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   app:
-    image: ghcr.io/zechmeister/agora/agora-wiki:dev
+    image: ghcr.io/zechmeister/agora/wiki:dev
     hostname: app
     env_file: wiki/$ENV.env
     volumes:

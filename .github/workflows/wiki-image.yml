@@ -26,4 +26,4 @@ jobs:
         with: 
           context: ./wiki
           push: true
-          tags: ghcr.io/${{ github.repository }}/agora-wiki:latest
+          tags: ghcr.io/${{ github.repository }}/wiki:latest

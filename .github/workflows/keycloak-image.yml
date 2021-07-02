@@ -29,4 +29,4 @@ jobs:
         with: 
           context: ./keycloak
           push: true
-          tags: ghcr.io/${{ github.repository }}/agora-keycloak:latest
+          tags: ghcr.io/${{ github.repository }}/keycloak:latest
