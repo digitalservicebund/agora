@@ -6,7 +6,7 @@
     <div id="kc-terms-text">
         Bitte nehmem Sie die folgenden Nutzungsbedingungen zur Kenntnis und akzeptieren Sie sie, um fortzufahren:
         
-        <a href="https://agora-oegd.de/s/8RZBT49qGsdScRm/download/Nutzungsbedingungen_Agora_%C3%96GD_1.0.pdf" target="_blank">Agora Nutzungsbedingungen</a>.
+        <a href="https://agora-oegd.de/s/sD8NBTEsytJ6Agq" target="_blank">Agora Nutzungsbedingungen</a>.
     </div>
     <form class="form-actions" action="${url.loginAction}" method="POST">
         <input class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonLargeClass!}" name="accept" id="kc-accept" type="submit" value="${msg("doAccept")}"/>
