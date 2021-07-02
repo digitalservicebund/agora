@@ -29,6 +29,6 @@ jobs:
           push: true
           tags: ghcr.io/${{ github.repository }}/nextcloud:latest
 
-      - name: Deploy to Staging
-        run: echo test this
-        run: ssh dieter@agora-oegd.de
+      - name: Deploy to staging
+      - run: echo test this
+      - run: ssh root@${{ secrets.STAGING_SERVER }}
