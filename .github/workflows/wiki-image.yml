@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  agora-keycloak:
+  agora-wiki:
     runs-on: ubuntu-latest
     steps:
 
