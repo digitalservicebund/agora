@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'nextcloud/Dockerfile'
+      - '.github/workflows/nextcloud-image.yml'
   workflow_dispatch:
 
 jobs:
