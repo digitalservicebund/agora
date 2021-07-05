@@ -10,3 +10,5 @@ RUN curl https://extdist.wmflabs.org/dist/extensions/PluggableAuth-REL1_36-78cb4
 RUN curl https://extdist.wmflabs.org/dist/extensions/OpenIDConnect-REL1_36-9703a4e.tar.gz --output OpenIDConnect-REL1_36-9703a4e.tar.gz && \
 	tar -xzf OpenIDConnect-REL1_36-9703a4e.tar.gz -C /var/www/html/extensions && \
 	rm OpenIDConnect-REL1_36-9703a4e.tar.gz
+
+COPY agora.ini /usr/local/etc/php/conf.d/agora.ini
