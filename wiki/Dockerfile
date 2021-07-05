@@ -11,10 +11,11 @@ RUN curl https://extdist.wmflabs.org/dist/extensions/OpenIDConnect-REL1_36-9703a
 	tar -xzf OpenIDConnect-REL1_36-9703a4e.tar.gz -C /var/www/html/extensions && \
 	rm OpenIDConnect-REL1_36-9703a4e.tar.gz
 
-# add Youtube extension
-RUN curl https://extdist.wmflabs.org/dist/extensions/YouTube-REL1_36-c352d8c.tar.gz --output YouTube-REL1_36-c352d8c.tar.gz && \
-	tar -xzf YouTube-REL1_36-c352d8c.tar.gz -C /var/www/html/extensions && \
-	rm YouTube-REL1_36-c352d8c.tar.gz
+# add EmbedVideo extension
+RUN curl https://gitlab.com/hydrawiki/extensions/EmbedVideo/-/archive/v2.9.0/EmbedVideo-v2.9.0.tar.gz --output EmbedVideo.tar.gz && \
+	tar -xzf EmbedVideo.tar.gz -C /var/www/html/extensions && \
+	mv /var/www/html/extensions/EmbedVideo-v2.9.0 /var/www/html/extensions/EmbedVideo && \
+	rm EmbedVideo.tar.gz
 
 
 # php config
