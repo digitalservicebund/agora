@@ -14,7 +14,7 @@ RUN curl https://extdist.wmflabs.org/dist/extensions/OpenIDConnect-REL1_36-9703a
 # add Widgets extension
 RUN curl https://extdist.wmflabs.org/dist/extensions/Widgets-REL1_36-bba5b5e.tar.gz --output Widgets-REL1_36-bba5b5e.tar.gz && \
 	tar -xzf Widgets-REL1_36-bba5b5e.tar.gz -C /var/www/html/extensions && \
-	chmod -R www-data:www-data /var/www/html/extensions/Widgets && \
+	chown -R www-data:www-data /var/www/html/extensions/Widgets && \
 	rm Widgets-REL1_36-bba5b5e.tar.gz
 
 
