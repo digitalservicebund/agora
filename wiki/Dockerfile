@@ -11,11 +11,11 @@ RUN curl https://extdist.wmflabs.org/dist/extensions/OpenIDConnect-REL1_36-9703a
 	tar -xzf OpenIDConnect-REL1_36-9703a4e.tar.gz -C /var/www/html/extensions && \
 	rm OpenIDConnect-REL1_36-9703a4e.tar.gz
 
-# add EmbedVideo extension
-RUN curl https://gitlab.com/hydrawiki/extensions/EmbedVideo/-/archive/v2.9.0/EmbedVideo-v2.9.0.tar.gz --output EmbedVideo.tar.gz && \
-	tar -xzf EmbedVideo.tar.gz -C /var/www/html/extensions && \
-	mv /var/www/html/extensions/EmbedVideo-v2.9.0 /var/www/html/extensions/EmbedVideo && \
-	rm EmbedVideo.tar.gz
+# add Widgets extension
+RUN curl https://extdist.wmflabs.org/dist/extensions/Widgets-REL1_36-bba5b5e.tar.gz --output Widgets-REL1_36-bba5b5e.tar.gz && \
+	tar -xzf Widgets-REL1_36-bba5b5e.tar.gz -C /var/www/html/extensions && \
+	chmod -R www-data:www-data /var/www/html/extensions/Widgets && \
+	rm Widgets-REL1_36-bba5b5e.tar.gz
 
 
 # php config

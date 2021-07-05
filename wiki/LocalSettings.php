@@ -139,6 +139,7 @@ wfLoadSkin( 'Vector' );
 wfLoadExtension( 'OpenIDConnect' );
 wfLoadExtension( 'PluggableAuth' );
 wfLoadExtension( 'VisualEditor' );
+wfLoadExtension( 'Widgets' );
 
 
 # End of automatically generated settings.
@@ -151,3 +152,13 @@ $wgOpenIDConnect_Config['key.localhost/auth/realms/Agora'] = [
 	'scope' => [ 'openid', 'profile', 'email']
 ];
 
+$wgPluggableAuth_EnableAutoLogin = true;  
+$wgPluggableAuth_EnableLocalLogin = false;
+$wgOpenIDConnect_UseRealNameAsUserName = true;
+
+$wgGroupPermissions['*']['autocreateaccount'] = true;
+$wgGroupPermissions['*']['createaccount'] = true;
+
+
+# nextcloud x-frame needs this:
+$wgEditPageFrameOptions = 'SAMEORIGIN';
