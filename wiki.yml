@@ -18,7 +18,7 @@ services:
         - "traefik.http.routers.wiki.tls=true"
         - "traefik.http.routers.wiki.tls.certresolver=myresolver"
         # Headers for x-frames
-        - "traefik.http.middlewares.wikiFrame.headers.contentSecurityPolicy=frame-ancestors 'self' https://$ENV"
+        - "traefik.http.middlewares.wikiFrame.headers.contentSecurityPolicy=frame-ancestors 'self' https://$HOST"
         - "traefik.http.routers.wiki.middlewares=wikiFrame"
     secrets:
       - source: local-settings
