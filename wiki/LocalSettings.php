@@ -159,6 +159,8 @@ $wgOpenIDConnect_UseRealNameAsUserName = true;
 $wgGroupPermissions['*']['autocreateaccount'] = true;
 $wgGroupPermissions['*']['createaccount'] = true;
 
+# allow @ sign in username
+$wgInvalidUsernameCharacters = '';
 
 # nextcloud x-frame needs this:
 $wgEditPageFrameOptions = 'SAMEORIGIN';
