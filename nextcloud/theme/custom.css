@@ -1,0 +1,68 @@
+#appmenu:hover li span,
+#appmenu:focus li span {
+  opacity: 1;
+}
+
+#appmenu li span {
+  opacity: 1;
+}
+
+#nextcloud {
+  width: 125px;
+  padding: 2px 0;
+}
+
+#header .logo {
+  width: 100%;
+  background-size: 60%;
+  left: 0;
+}
+
+#appmenu li {
+  margin-right: 15px;
+  padding: 0;
+}
+
+#appmenu li a:hover,
+#appmenu li a:focus,
+#appmenu li .active {
+  background-color: #003278;
+}
+
+#appmenu li a {
+  opacity: 1;
+  align-items: normal;
+}
+
+#appmenu li a svg {
+  width: 16px;
+}
+
+
+#appmenu li:hover a,
+#appmenu li:hover span,
+#appmenu li:focus a,
+#appmenu li:focus span,
+#appmenu li a:focus span,
+#appmenu li a:focus + span {
+  transform: none;
+  // font-size: 12px;
+  // font-weight: 400;
+  // background-color: darkblue;
+}
+
+#appmenu:hover li svg,
+#appmenu:hover li .icon-more,
+#appmenu:hover li .icon-more-white,
+#appmenu:hover li .icon-loading-small,
+#appmenu:hover li .icon-loading-small-dark {
+  transform: none;
+}
+
+#appmenu li a:focus svg,
+#appmenu li a:focus .icon-more,
+#appmenu li a:focus .icon-more-white,
+#appmenu li a:focus .icon-loading-small,
+#appmenu li a:focus .icon-loading-small-dark {
+  transform: none;
+}
