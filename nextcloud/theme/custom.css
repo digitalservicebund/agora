@@ -1,3 +1,7 @@
+#appmenu {
+  height: 100%;
+}
+
 #appmenu:hover li span,
 #appmenu:focus li span {
   opacity: 1;
@@ -5,11 +9,12 @@
 
 #appmenu li span {
   opacity: 1;
+  z-index: 3;
 }
 
 #nextcloud {
   width: 125px;
-  padding: 2px 0;
+  padding: 0;
 }
 
 #header .logo {
@@ -19,23 +24,55 @@
 }
 
 #appmenu li {
-  margin-right: 15px;
+  margin-right: 18px;
   padding: 0;
+  display: block;
+  width: auto;
+}
+
+#appmenu li a {
+  align-items: normal;
+  display: block;
+  width: auto;
+  padding: 4px;
+  height: 42px; // 50 - 4 - 4
+  letter-spacing: unset;
+  opacity: 0.85;
+}
+
+#appmenu li:hover a {
+  opacity: 1;
 }
 
 #appmenu li a:hover,
 #appmenu li a:focus,
 #appmenu li .active {
   background-color: #003278;
+  z-index: 1;
 }
 
-#appmenu li a {
-  opacity: 1;
-  align-items: normal;
+#appmenu li a::before {
+  border-width: 5px;
 }
 
-#appmenu li a svg {
-  width: 16px;
+#appmenu li a span{
+  display: block;
+  overflow: unset;
+  width: auto;
+  position: relative;
+  color: #ffffff;
+  font-size: 14px;
+  padding: 0 5px;
+}
+
+#appmenu li a svg,
+#appmenu li a .icon-more-white,
+#appmenu li a .icon-loading-small-dark {
+  width: 18px;
+  height: 18px;
+  display: block;
+  margin: 2px auto 0 auto;
+
 }
 
 
@@ -44,11 +81,12 @@
 #appmenu li:focus a,
 #appmenu li:focus span,
 #appmenu li a:focus span,
-#appmenu li a:focus + span {
+#appmenu li a:focus + span,
+#appmenu li a.active {
   transform: none;
-  // font-size: 12px;
-  // font-weight: 400;
-  // background-color: darkblue;
+  font-weight: 400;
+  display: block;
+  opacity: 1;  
 }
 
 #appmenu:hover li svg,
