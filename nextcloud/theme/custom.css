@@ -24,7 +24,6 @@
 }
 
 #appmenu li {
-  margin-right: 18px;
   padding: 0;
   display: block;
   width: auto;
@@ -62,7 +61,9 @@
   position: relative;
   color: #ffffff;
   font-size: 13px;
-  padding: 0 5px;
+  padding: 0 12px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
 }
 
 #appmenu li a svg,
@@ -77,17 +78,19 @@
 
 
 #appmenu li:hover a,
-#appmenu li:hover span,
 #appmenu li:focus a,
-#appmenu li:focus span,
-#appmenu li a:focus span,
-#appmenu li a:focus + span,
 #appmenu li a.active {
   transform: none;
-  font-weight: 400;
   display: block;
   opacity: 1;  
   font-size: 13px;
+}
+
+#appmenu li:hover span,
+#appmenu li:focus span,
+#appmenu li a:focus span,
+#appmenu li a:focus + span {
+  padding: 0 12px;
 }
 
 #appmenu:hover li svg,
@@ -101,7 +104,7 @@
 #appmenu li a:focus svg,
 #appmenu li a:focus .icon-more,
 #appmenu li a:focus .icon-more-white,
-#appmenu li a:focus .icon-loading-small, 
+#appmenu li a:focus .icon-loading-small,
 #appmenu li a:focus .icon-loading-small-dark {
   transform: none;
 }
