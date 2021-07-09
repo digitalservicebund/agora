@@ -105,3 +105,8 @@
 #appmenu li a:focus .icon-loading-small-dark {
   transform: none;
 }
+
+#body-settings #settings #expand:before,
+#body-settings #settings .settings-menu ::after {
+  border-width: 5px;
+}
