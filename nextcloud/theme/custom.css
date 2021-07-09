@@ -110,3 +110,9 @@
 #body-settings #settings .settings-menu ::after {
   border-width: 5px;
 }
+
+
+// hide recommendations in Files
+#filelist-header {
+  display: none;
+}
