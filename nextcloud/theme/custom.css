@@ -35,7 +35,7 @@
   display: block;
   width: auto;
   padding: 4px;
-  height: 42px; // 50 - 4 - 4
+  height: 42px; /* 50 - 4 - 4 */ 
   letter-spacing: unset;
   opacity: 0.85;
 }
@@ -101,7 +101,7 @@
 #appmenu li a:focus svg,
 #appmenu li a:focus .icon-more,
 #appmenu li a:focus .icon-more-white,
-#appmenu li a:focus .icon-loading-small,
+#appmenu li a:focus .icon-loading-small, 
 #appmenu li a:focus .icon-loading-small-dark {
   transform: none;
 }
@@ -111,8 +111,8 @@
   border-width: 5px;
 }
 
-
-// hide recommendations in Files
-#filelist-header {
-  display: none;
+/* hide recommendations */
+#recommendations,
+#recommendations-setting-enabled {
+  display: none !important;
 }
