@@ -19,6 +19,7 @@ $CONFIG = array (
 	// usability 
 	'default_phone_region' => 'DE',
 	'skeletondirectory' => '',
+	'knowledgebaseenabled' => false,
 
 	// debugging
 	'loglevel' => '0',
