@@ -61,7 +61,7 @@
   width: auto;
   position: relative;
   color: #ffffff;
-  font-size: 14px;
+  font-size: 13px;
   padding: 0 5px;
 }
 
@@ -87,6 +87,7 @@
   font-weight: 400;
   display: block;
   opacity: 1;  
+  font-size: 13px;
 }
 
 #appmenu:hover li svg,
