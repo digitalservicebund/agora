@@ -4,7 +4,7 @@ services:
   db:
     image: mariadb
     hostname: db
-    command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW
+    command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW --skip-innodb-read-only-compressed
     env_file: nextcloud/db/$ENV.env
     volumes:
       - nextcloud-db:/var/lib/mysql
@@ -18,7 +18,7 @@ services:
       - nextcloud-backend
 
   app:
-    image: ghcr.io/zechmeister/agora/nextcloud:latest
+    image: ghcr.io/zechmeister/agora/nextcloud:22
     hostname: app
     env_file: nextcloud/app/$ENV.env
     volumes:
@@ -30,6 +30,9 @@ services:
         target: /var/www/html/config/agora.config.php
       - source: oidc-config
         target: /var/www/html/config/oidc.config.php
+    # configs:
+    #   - source: contacts-l10n
+    #     target: /var/www/html/custom_apps/contacts/l10n/de_DE.json
 
   web:
     image: nginx:stable-alpine
@@ -82,6 +85,8 @@ services:
 configs:
   web-nginx:
     file: ./nextcloud/web/nginx.conf
+  # contacts-l10n:
+  #   file: ./nextcloud/app/contacts_de.json
 secrets:
   agora-config:
     file: ./nextcloud/app/agora.$ENV.config.php
