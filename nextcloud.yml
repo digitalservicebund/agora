@@ -30,9 +30,9 @@ services:
         target: /var/www/html/config/agora.config.php
       - source: oidc-config
         target: /var/www/html/config/oidc.config.php
-    # configs:
-    #   - source: contacts-l10n
-    #     target: /var/www/html/custom_apps/contacts/l10n/de_DE.json
+    configs:
+      - source: contacts-l10n
+        target: /var/www/html/custom_apps/contacts/l10n/de_DE.js
 
   web:
     image: nginx:stable-alpine
@@ -85,8 +85,8 @@ services:
 configs:
   web-nginx:
     file: ./nextcloud/web/nginx.conf
-  # contacts-l10n:
-  #   file: ./nextcloud/app/contacts_de.json
+  contacts-l10n:
+    file: ./nextcloud/app/contacts_de.js
 secrets:
   agora-config:
     file: ./nextcloud/app/agora.$ENV.config.php
