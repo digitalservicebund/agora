@@ -5,7 +5,7 @@
 "New contact" : "Neuer Kontakt";"New contact" : "[Vorname & Nachname]"
 "There are no contacts in this group" : "In dieser Gruppe befinden sich keine Kontakte";"There are no contacts in this group" : "Es gibt keine Kontakte mit diesem Schlagwort"
 "Groups" : "Gruppen";"Groups" : "Schlagwörter"
-""Create a new group" : "Neue Gruppe erstellen";Create a new group" : "Neues Schlagwort erstellen"
+"Create a new group" : "Neue Gruppe erstellen";"Create a new group" : "Neues Schlagwort erstellen"
 "Group name" : "Gruppenname";"Group name" : "Schlagwort"
 "Add contacts" : "Kontakte hinzufügen";"Add contacts" : "Kontakten zuweisen"
 "Show all groups" : "Alle Gruppen anzeigen";"Show all groups" : "Alle Schlagwörter anzeigen"
