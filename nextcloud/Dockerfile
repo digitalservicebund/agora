@@ -1,14 +1,9 @@
 FROM ubuntu:latest as app-builder
 
-ARG CONTACTS_VERSION=v4.0.0
-
+# load custom apps
 RUN apt-get update && apt-get install -y curl
 
-# add contacts app
-RUN curl -fsSL https://github.com/nextcloud/contacts/releases/download/${CONTACTS_VERSION}/contacts.tar.gz --output contacts.tar.gz && \
-	tar -xzf contacts.tar.gz && \
-	ls 
-
+ARG CONTACTS_VERSION=v4.0.0
 ## bruteforcesettings?!
 ## external
 ## oidc_login
@@ -17,7 +12,15 @@ RUN curl -fsSL https://github.com/nextcloud/contacts/releases/download/${CONTACT
 ## spreed
 ## welcome
 
+# add contacts app
+RUN curl -fsSL https://github.com/nextcloud/contacts/releases/download/${CONTACTS_VERSION}/contacts.tar.gz --output var/contacts.tar.gz && \
+		mkdir var/apps && \
+		tar -xzf var/contacts.tar.gz -C var/apps 
 
+# run script to replace some strings within contacts app
+COPY contacts_renaming /var/contacts_renaming
+RUN chmod +x /var/contacts_renaming/replace.sh && \
+		/bin/sh /var/contacts_renaming/replace.sh /var/apps
 
 
 FROM nextcloud:22.0-fpm-alpine
@@ -36,11 +39,5 @@ RUN sed -i "s/pm.max_children = 5/pm.max_children = ${MAX_CHILDREN}/g" /usr/loca
 		sed -i "s/pm.min_spare_servers = 1/pm.min_spare_servers = ${MIN_SPARE}/g" /usr/local/etc/php-fpm.d/www.conf && \
 		sed -i "s/pm.max_spare_servers = 3/pm.max_spare_servers = ${MAX_SPARE}/g" /usr/local/etc/php-fpm.d/www.conf
 
-COPY --from=app-builder contacts /var/www/html/custom_apps/contacts
-
-COPY contacts_renaming /var/www/html/custom_apps/contacts_renaming
-RUN chmod +x /var/www/html/custom_apps/contacts_renaming/replace.sh 
-RUN	/bin/sh /var/www/html/custom_apps/contacts_renaming/replace.sh
-
-RUN ls /var/www/
-# execute script
+# copy custom apps 
+COPY --from=app-builder /var/apps/ /var/www/html/custom_apps
