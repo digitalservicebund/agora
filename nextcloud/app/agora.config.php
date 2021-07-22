@@ -23,6 +23,9 @@ $CONFIG = array (
 	'skeletondirectory' => '',
 	'knowledgebaseenabled' => false,
 
+	// use docker images for apps instead
+	'appstoreenabled' => false,
+
 	// debugging
 	'loglevel' => '0',
 	'debug' => true,
