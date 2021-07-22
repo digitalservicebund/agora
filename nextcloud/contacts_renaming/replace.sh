@@ -1,6 +1,6 @@
 #!/bin/bash
 
-INPUT = replacements.csv
+INPUT="/var/www/html/custom_apps/contacts_renaming/replacements.csv"
 
 while IFS=; read -r original replacement
 do
