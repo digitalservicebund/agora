@@ -23,6 +23,7 @@ services:
     env_file: nextcloud/app/$ENV.env
     volumes:
       - nextcloud-data:/var/www/html
+      - nextcloud-apps:/var/www/html/custom_apps
     networks:
       - nextcloud-backend
     secrets:
@@ -92,6 +93,7 @@ secrets:
 volumes:
   nextcloud-db:
   nextcloud-data:
+  nextcloud-apps:
 
 networks:
   nextcloud-backend:
