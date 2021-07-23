@@ -17,6 +17,8 @@ $CONFIG = array (
 	'trusted_proxies' => ['PROXY_IP'],
 
 	// usability 
+	'default_language' => 'de_DE',
+	'default_locale' => 'de_DE',
 	'default_phone_region' => 'DE',
 	'skeletondirectory' => '',
 	'knowledgebaseenabled' => false,
