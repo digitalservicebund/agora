@@ -23,12 +23,6 @@ services:
         target: /etc/traefik/traefik.toml
       - source: dynamic
         target: /etc/traefik/dynamic.yml
-    logging:
-      driver: loki
-      options:
-        loki-url: "http://127.0.0.1:3100/loki/api/v1/push"
-        loki-retries: "5"
-        loki-batch-size: "100"
 
 configs:
   traefik:
