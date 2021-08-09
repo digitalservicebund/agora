@@ -1,10 +1,10 @@
 [log]
-	filePath = "/var/log/traefik.log"
+	#filePath = "/var/log/traefik.log"
 	format = "json"
 	# level = "DEBUG"
 
 [accessLog]
-	filePath = "/var/log/traefik_access.log"
+	#filePath = "/var/log/traefik_access.log"
 	format = "json"
 	bufferingSize = 100
 	# uncommend for debugging
