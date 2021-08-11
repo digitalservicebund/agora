@@ -18,6 +18,7 @@ services:
       - edge
     volumes:
       - grafana-data:/var/lib/grafana
+    env_file: monitor/$ENV.env
     deploy:
       labels:
         - "traefik.enable=true"
