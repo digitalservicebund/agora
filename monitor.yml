@@ -25,12 +25,6 @@ services:
         - "traefik.http.services.grafana.loadbalancer.server.port=3000"
         - "traefik.http.routers.grafana.tls=true"
         - "traefik.http.routers.grafana.tls.certresolver=myresolver"
-    logging:
-      driver: loki
-      options:
-        loki-url: "http://127.0.0.1:3100/loki/api/v1/push"
-        loki-retries: "5"
-        loki-batch-size: "1"
 
 networks:
   loki:
