@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   db:
-    image: mariadb
+    image: mariadb:10.6
     volumes:
       - key_db:/var/lib/mysql
     env_file: keycloak/db/$ENV.env
