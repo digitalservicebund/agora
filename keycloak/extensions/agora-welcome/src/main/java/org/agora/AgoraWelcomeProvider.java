@@ -42,7 +42,7 @@ public class AgoraWelcomeProvider implements EventListenerProvider {
 			UserModel newUser = this.session.users().getUserById(userId, realm);
 
 			// create token for initial passwort reset
-			int lifespan = 604800; // seconds
+			int lifespan = 2592000; // 30 * 24 * 60 * 60 seconds
 			int expiration = Time.currentTime() + lifespan;
 			var actions = List.of("UPDATE_PASSWORD");
 			ExecuteActionsActionToken token = new ExecuteActionsActionToken(newUser.getId(), expiration, actions, "https://agora-oegd.de", "nextcloud");
@@ -57,7 +57,7 @@ public class AgoraWelcomeProvider implements EventListenerProvider {
       													 "ein Agora-Konto wurde für Sie angelegt." + "\n\n" + 
       													 "Um die Registrierung abzuschließen, klicken Sie bitte auf den folgenden Link: " + "\n\n" + 
       													 link + " " + 
-      													 "Der Link ist aus Sicherheitsgründen nur 1 Woche gültig. Sollte der Link nicht mehr gültig sein, wenden Sie sich bitte an die Administrator:innen in Ihrer Organisation." + "\n\n" + 
+      													 "Der Link ist einen Monat gültig. Sollte der Link nicht mehr gültig sein, wenden Sie sich bitte an die Administrator:innen in Ihrer Organisation." + "\n\n" + 
       													 "Agora-Kollaborationsplattform: https://agora-oegd.de" + "\n" +
       													 "Tutorials: https://einrichtung.agora-oegd.de/tutorials?utm_source=anmeldung&utm_medium=email Passwort: kollaboration" + "\n" +
       													 "Nutzer:innenverwaltung für Administrator:innen: https://agora-oegd.de/nutzerinnenverwaltung" + "\n\n" +
