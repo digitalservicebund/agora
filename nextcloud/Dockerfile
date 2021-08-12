@@ -23,10 +23,15 @@ RUN chmod +x /var/contacts_renaming/replace.sh && \
 		/bin/sh /var/contacts_renaming/replace.sh /var/apps
 
 
-FROM nextcloud:22.0-fpm-alpine
+FROM nextcloud:22.1-fpm-alpine
 
 LABEL org.opencontainers.image.source https://github.com/zechmeister/agora
 ENV PHP_MEMORY_LIMIT 1024M
+
+# forward audit logs to docker log collector
+RUN mkdir /var/www/html/data/ && \
+		touch /var/www/html/data/audit.log && \ 
+		ln -sf /dev/stdout /var/www/html/data/audit.log
 
 # tune php-fpm
 ARG MAX_CHILDREN=120
