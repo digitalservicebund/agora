@@ -23,9 +23,14 @@ $CONFIG = array (
 	'skeletondirectory' => '',
 	'knowledgebaseenabled' => false,
 
-	// debugging
-	'loglevel' => '0',
-	'debug' => true,
+	// use docker images for apps instead
+	'appstoreenabled' => false,
+
+	// logging
+	'log_type' => 'errorlog',
+	'logfile' => '',
+	'loglevel' => 1,
+	'debug' => false,
 
 	// Mail
   'mail_smtpmode' => 'smtp',
