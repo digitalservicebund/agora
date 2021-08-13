@@ -22,7 +22,8 @@ services:
     deploy:
       labels:
         - "traefik.enable=true"
-        - "traefik.http.routers.grafana.rule=Host(`monitor.$HOST`)"
+        - "traefik.http.routers.grafana.rule=PathPrefix(`/monitor`)"
+        - "traefik.http.routers.grafana.priority=100"
         - "traefik.http.services.grafana.loadbalancer.server.port=3000"
         - "traefik.http.routers.grafana.tls=true"
         - "traefik.http.routers.grafana.tls.certresolver=myresolver"
