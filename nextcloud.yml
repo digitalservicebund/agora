@@ -33,7 +33,7 @@ services:
         target: /var/www/html/config/oidc.config.php
 
   web:
-    image: nginx:stable-alpine
+    image: nginx:1.20-alpine
     hostname: web
     volumes:
       - nextcloud-data:/var/www/html
