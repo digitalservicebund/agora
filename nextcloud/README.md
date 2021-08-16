@@ -15,10 +15,15 @@
 
 # Updating
 - maintenance mode 
-- new image, start container without mounting secrets/configs 
-- check settings/admin/overview till "Your version is up to date. "
-- check for setup warnings
-- restart container with mounted configs/ secrets
+- just pull new image?
+
+# Update custom_apps
+- got to remove the custom_apps volume (since it's part of the bigger volume and new app versions are part of image)
+```
+$ docker stack rm nextcloud
+$ docker volume rm nextcloud_nextcloud-apps
+```
+… then redeploy the stack 
 
 
 # Configs 
