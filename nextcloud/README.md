@@ -5,6 +5,7 @@
 
 # Installation
 - first run without config/secrits mounts
+- set proxy IP in config?
 - install oidc app
 
 # OIDC setup with keycloak

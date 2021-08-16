@@ -37,6 +37,7 @@ services:
     hostname: web
     volumes:
       - nextcloud-data:/var/www/html
+      - nextcloud-apps:/var/www/html/custom_apps
     deploy:
       labels:
         - "traefik.enable=true"
