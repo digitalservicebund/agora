@@ -8,7 +8,7 @@ https://github.com/grafana/loki/tree/main/clients/cmd/docker-driver
 install with 
 
 ```
-docker plugin install  grafana/loki-docker-driver:latest --alias loki --grant-all-permissions
+docker plugin install  grafana/loki-docker-driver:2.3.0 --alias loki --grant-all-permissions
 ```
 
 - set docker daemon to use loki as default logger
