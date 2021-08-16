@@ -77,3 +77,4 @@ RUN sed -i "s/pm.max_children = 5/pm.max_children = ${MAX_CHILDREN}/g" /usr/loca
 
 # copy custom apps 
 COPY --from=app-builder /var/apps/ /var/www/html/custom_apps
+RUN chown -R www-data /var/www/html/custom_apps
