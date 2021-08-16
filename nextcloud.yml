@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   db:
-    image: mariadb
+    image: mariadb:10.6
     hostname: db
     command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW --skip-innodb-read-only-compressed
     env_file: nextcloud/db/$ENV.env
