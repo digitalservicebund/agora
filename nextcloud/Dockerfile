@@ -3,19 +3,50 @@ FROM ubuntu:latest as app-builder
 # load custom apps
 RUN apt-get update && apt-get install -y curl
 
-ARG CONTACTS_VERSION=v4.0.0
-## bruteforcesettings?!
-## external
-## oidc_login
-## theme_customcss
+
+ARG WELCOME_VERSION=0.0.6-2-nightly
+ARG CONTACTS_VERSION=4.0.0
+# ARG COLLETIVES_VERSION
+ARG EXTERNAL_VERSION=3.9.0
+ARG SPREED_VERSION=12.0.1
+ARG CUSTOMCSS_VERSION=1.9.0
+ARG OIDC_VERSION=2.0.4
+ARG EVERYONE_VERSION=0.1.8
+
 ## group_everyone
-## spreed
-## welcome
+
+# add welcome app
+RUN curl -fsSL https://github.com/eneiluj/welcome/releases/download/v${WELCOME_VERSION}/welcome-${WELCOME_VERSION}.tar.gz --output var/welcome.tar.gz && \
+		mkdir var/apps && \
+		tar -xzf var/welcome.tar.gz -C var/apps 
 
 # add contacts app
-RUN curl -fsSL https://github.com/nextcloud/contacts/releases/download/${CONTACTS_VERSION}/contacts.tar.gz --output var/contacts.tar.gz && \
-		mkdir var/apps && \
+RUN curl -fsSL https://github.com/nextcloud/contacts/releases/download/v${CONTACTS_VERSION}/contacts.tar.gz --output var/contacts.tar.gz && \
 		tar -xzf var/contacts.tar.gz -C var/apps 
+
+# add collectives app
+RUN curl -fsSL https://gitlab.com/collectivecloud/collectives/uploads/4eb4cf837b69b5f88fdd9eded135f39c/collectives-0.10.22.tar.gz --output var/collectives.tar.gz && \
+		tar -xzf var/collectives.tar.gz -C var/apps 
+
+# add external app
+RUN curl -fsSL https://github.com/nextcloud/external/releases/download/v${EXTERNAL_VERSION}/external-${EXTERNAL_VERSION}.tar.gz --output var/external.tar.gz && \
+		tar -xzf var/external.tar.gz -C var/apps 
+
+# add spreed/talk app
+RUN curl -fsSL https://github.com/nextcloud-releases/spreed/releases/download/v${SPREED_VERSION}/spreed-${SPREED_VERSION}.tar.gz --output var/spreed.tar.gz && \
+		tar -xzf var/spreed.tar.gz -C var/apps 
+
+# add custom_css app
+RUN curl -fsSL https://github.com/juliushaertl/theming_customcss/releases/download/v${CUSTOMCSS_VERSION}/theming_customcss.tar.gz --output var/theming_customcss.tar.gz && \
+		tar -xzf var/theming_customcss.tar.gz -C var/apps 
+
+# add oidc_login app
+RUN curl -fsSL https://github.com/pulsejet/nextcloud-oidc-login/releases/download/v${OIDC_VERSION}/oidc_login.tar.gz --output var/oidc_login.tar.gz && \
+		tar -xzf var/oidc_login.tar.gz -C var/apps 
+
+# add group_everyone app
+RUN curl -fsSL https://github.com/icewind1991/group_everyone/releases/download/v${EVERYONE_VERSION}/group_everyone.tar.gz --output var/group_everyone.tar.gz && \
+		tar -xzf var/group_everyone.tar.gz -C var/apps 
 
 # run script to replace some strings within contacts app
 COPY contacts_renaming /var/contacts_renaming
