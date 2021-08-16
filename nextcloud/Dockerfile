@@ -13,7 +13,6 @@ ARG CUSTOMCSS_VERSION=1.9.0
 ARG OIDC_VERSION=2.0.4
 ARG EVERYONE_VERSION=0.1.8
 
-## group_everyone
 
 # add welcome app
 RUN curl -fsSL https://github.com/eneiluj/welcome/releases/download/v${WELCOME_VERSION}/welcome-${WELCOME_VERSION}.tar.gz --output var/welcome.tar.gz && \
