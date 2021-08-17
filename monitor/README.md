@@ -29,4 +29,13 @@ in 'etc/docker/daemon.json':
 - on LogQL https://grafana.com/docs/loki/latest/logql/
 
 
+## Nextcloud
+
+- we're using nextcloud's audit app
+- enable the app & make sure the logfile is linked to stdout:
+```
+$ docker exec --user www-data -it <CONTAINER_ID> php ./occ app:enable audit
+$ docker exec -it ln -sf /dev/stdout /var/www/html/data/audit.log
+
+```
 
