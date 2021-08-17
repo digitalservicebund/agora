@@ -2,6 +2,8 @@
 - use own dockerfile
 - include apps we're using to not depend on the nextcloud app store for updates/installing apps 
 
+## contacts renaming
+- script that overwrites some strings in contacts app ([original version](https://github.com/nextcloud/contacts/blob/master/l10n/de.js))
 
 # Installation
 - first run without config/secrits mounts
@@ -34,7 +36,7 @@ $ docker exec --user www-data -it <NC_APP_CONTAINER> php ./occ app:enable <NEW_A
 
 - limit app to user_groups:
 ```
-$ docker exec --user www-data -it <NC_APP_CONTAINER> php ./occ config:app:set <NEW_APP> enabled --value="[\"admin\",\"ds4g\"]"
+$ docker exec --user www-data -it <NC_APP_CONTAINER> php ./occ config:app:set <NEW_APP> enabled --value="[\"<GROUP_1>\",\"<GROUP_2>\"]"
 
 ```
 
