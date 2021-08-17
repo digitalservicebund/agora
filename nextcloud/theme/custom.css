@@ -14,13 +14,17 @@
 
 #nextcloud {
   width: 125px;
-  padding: 0;
+  margin-left: -8;
 }
 
 #header .logo {
   width: 100%;
   background-size: 60%;
-  left: 0;
+  left: -10;
+}
+
+.header-appname {
+  margin-left: 130;
 }
 
 #appmenu li {
@@ -63,7 +67,7 @@
   font-size: 13px;
   padding: 0 12px;
   font-weight: 500;
-  letter-spacing: 0.2px;
+  letter-spacing: 0.1px;
 }
 
 #appmenu li a svg,
