@@ -12,6 +12,7 @@ ARG SPREED_VERSION=12.0.1
 ARG CUSTOMCSS_VERSION=1.9.0
 ARG OIDC_VERSION=2.0.4
 ARG EVERYONE_VERSION=0.1.8
+ARG DECK_VERSION=1.4.2
 
 
 # add welcome app
@@ -46,6 +47,10 @@ RUN curl -fsSL https://github.com/pulsejet/nextcloud-oidc-login/releases/downloa
 # add group_everyone app
 RUN curl -fsSL https://github.com/icewind1991/group_everyone/releases/download/v${EVERYONE_VERSION}/group_everyone.tar.gz --output var/group_everyone.tar.gz && \
 		tar -xzf var/group_everyone.tar.gz -C var/apps 
+
+# add deck app
+RUN curl -fsSL https://github.com/nextcloud/deck/releases/download/v${DECK_VERSION}/deck.tar.gz --output var/deck.tar.gz && \
+		tar -xzf var/deck.tar.gz -C var/apps 
 
 # run script to replace some strings within contacts app
 COPY contacts_renaming /var/contacts_renaming
