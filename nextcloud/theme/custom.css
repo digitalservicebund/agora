@@ -14,17 +14,16 @@
 
 #nextcloud {
   width: 125px;
-  margin-left: -8;
+  margin-left: -8px;
 }
 
 #header .logo {
   width: 100%;
   background-size: 60%;
-  left: -10;
 }
 
 .header-appname {
-  margin-left: 130;
+  margin-left: 130px;
 }
 
 #appmenu li {
