@@ -123,6 +123,7 @@
   display: none !important;
 }
 
+/* prevent overlapping in contacts */
 .contacts-list {
   padding-top: 44px;
 }
