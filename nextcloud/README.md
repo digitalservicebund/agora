@@ -8,17 +8,38 @@
 - set proxy IP in config?
 - install oidc app
 
-# OIDC setup with keycloak
+## OIDC setup with keycloak
 - create client, configure oidc.config.php
 - create protocol mapper for groups
 	- 'Group Membership', 'groups'
 
-
-# Updating
+# Updating 
 - maintenance mode 
 - just pull new image?
 
-# Update custom_apps
+# Apps
+
+## install new app
+_not possible without downtime right now_
+- add to Dockerfile
+- reset custom_apps:
+```
+$ docker volume rm nextcloud_nextcloud-apps
+```
+- enable new app:
+```
+$ docker exec --user www-data -it <NC_APP_CONTAINER> php ./occ app:enable <NEW_APP>
+
+```
+
+- limit app to user_groups:
+```
+$ docker exec --user www-data -it <NC_APP_CONTAINER> php ./occ config:app:set <NEW_APP> enabled --value="[\"admin\",\"ds4g\"]"
+
+```
+
+
+## Update custom_apps
 - got to remove the custom_apps volume (since it's part of the bigger volume and new app versions are part of image)
 ```
 $ docker stack rm nextcloud
