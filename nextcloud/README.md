@@ -36,6 +36,8 @@ $ docker exec --user www-data -it <NC_APP_CONTAINER> php ./occ app:enable <NEW_A
 
 - limit app to user_groups:
 ```
+# enable app first in order to populate configs:
+$ docker exec --user www-data -it <NC_APP_CONTAINER> php ./occ app:enable <NEW_APP>
 $ docker exec --user www-data -it <NC_APP_CONTAINER> php ./occ config:app:set <NEW_APP> enabled --value="[\"<GROUP_1>\",\"<GROUP_2>\"]"
 
 ```
