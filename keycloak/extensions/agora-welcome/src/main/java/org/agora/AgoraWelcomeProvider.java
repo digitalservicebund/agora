@@ -57,7 +57,7 @@ public class AgoraWelcomeProvider implements EventListenerProvider {
       													 "ein Agora-Konto wurde für Sie angelegt." + "\n\n" + 
       													 "Um die Registrierung abzuschließen, klicken Sie bitte auf den folgenden Link: " + "\n\n" + 
       													 link + " " + 
-      													 "Der Link ist einen Monat gültig. Sollte der Link nicht mehr gültig sein, wenden Sie sich bitte an die Administrator:innen in Ihrer Organisation." + "\n\n" + 
+      													 "Der Link ist einen Monat gültig. Sollte der Link nicht mehr gültig sein, wenden Sie sich bitte an die Administrator:innen in Ihrer Behörede bzw. Organisation." + "\n\n" + 
       													 "Agora-Kollaborationsplattform: https://agora-oegd.de" + "\n" +
       													 "Tutorials: https://einrichtung.agora-oegd.de/tutorials?utm_source=anmeldung&utm_medium=email Passwort: kollaboration" + "\n" +
       													 "Nutzer:innenverwaltung für Administrator:innen: https://agora-oegd.de/nutzerinnenverwaltung" + "\n\n" +
@@ -68,8 +68,8 @@ public class AgoraWelcomeProvider implements EventListenerProvider {
 
       String emailHtmlContent = "<h2>Hallo " + newUser.getFirstName() + " " + newUser.getLastName() + ",</h2>" + 
       													"<p>ein Agora-Konto wurde für Sie angelegt. Um die Registrierung abzuschließen, klicken Sie bitte auf den folgenden Link:</p>" + 
-      													"<table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" style=\"margin: 2.3em 0;\"><tr><td align=\"center\"><a href=\"" + link + "\" style=\"display: box; color: white; font-size: 1.1em; background-color: #003F97; padding: 12px 70px; text-decoration: none; border-radius: 10px;\">Registrieren</a></td></tr></table>" + 
-      													"<p>Sollte der Link nicht mehr gültig sein, wenden Sie sich bitte an die Administrator:innen in Ihrer Organisation.</p>" + 
+      													"<table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" style=\"margin: 2.3em 0;\"><tr><td align=\"center\"><a href=\"" + link + "\" style=\"display: box; color: white; font-size: 1.1em; background-color: #003F97; padding: 12px 70px; text-decoration: none; border-radius: 10px;\">Für Agora Registrieren</a></td></tr></table>" + 
+      													"<p>Der Link ist einen Monat gültig. Sollte der Link nicht mehr gültig sein, wenden Sie sich bitte an die Administrator:innen in Ihrer Behörede bzw. Organisation.</p>" + 
       													"<ul><li>Agora-Kollaborationsplattform: <a href=\"https://agora-oegd.de\">agora-oegd.de</a></li>" + 
       													"<li>Tutorials: <a href=\"https://einrichtung.agora-oegd.de/tutorials?utm_source=anmeldung&utm_medium=email\">einrichtung.agora-oegd.de/tutorials</a> Passwort: <u>kollaboration</u></li>" + 
       													"<li>Nutzer:innenverwaltung für Administrator:innen: <a href=\"https://agora-oegd.de/nutzerinnenverwaltung\">agora-oegd.de/nutzerinnenverwaltung</a></li></ul>" +
@@ -81,7 +81,7 @@ public class AgoraWelcomeProvider implements EventListenerProvider {
       
 			DefaultEmailSenderProvider senderProvider = new DefaultEmailSenderProvider(session);
       try {
-          senderProvider.send(realm.getSmtpConfig(), newUser, "Willkommen bei Agora", emailPlainContent, emailHtmlContent);
+          senderProvider.send(realm.getSmtpConfig(), newUser, "Agora-Registrierungslink", emailPlainContent, emailHtmlContent);
       } catch (EmailException e) {
           System.out.println("Failed to send welcome email");
       }
