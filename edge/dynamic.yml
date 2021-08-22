@@ -11,7 +11,7 @@ http:
         stsPreload: true
         stsSeconds: 31536000
         customResponseHeaders:
-          X-Robots-Tags: "none"
+          X-Robots-Tag: "none"
           X-Download-Options: "noopen"
           X-Permitted-Cross-Domain-Policies: "none"
           X-Frame-Options: "SAMEORIGIN"
