@@ -1,4 +1,4 @@
-name: Agora-Keycloak Docker Image
+name: Agora-Keycloak
 
 on:
   push:

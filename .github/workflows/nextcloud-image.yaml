@@ -1,9 +1,10 @@
-name: Agora-Nextcloud Docker Image
+name: Agora-Nextcloud
 
 on:
   push:
     paths:
       - 'nextcloud/Dockerfile'
+      - 'nextcloud/contacts_renaming'
   workflow_dispatch:
 
 jobs:

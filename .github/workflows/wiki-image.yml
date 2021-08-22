@@ -1,9 +1,10 @@
-name: Agora-MediaWiki Docker Image
+name: Agora-MediaWiki
 
 on:
   push:
     paths:
       - 'wiki/Dockerfile'
+      - 'wiki/agora.ini'
   workflow_dispatch:
 
 jobs:
