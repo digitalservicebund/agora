@@ -4,13 +4,12 @@
         Nutzungsbedingungen
     <#elseif section = "form">
     <div id="kc-terms-text">
-        Bitte nehmem Sie die folgenden Nutzungsbedingungen zur Kenntnis und akzeptieren Sie sie, um fortzufahren:
+        Um Agora nutzen zu können, müssen Sie die Nutzungsbedingungen zur Kenntnis nehmen und akzeptieren. Die Nutzungsbedingungen beschreiben u.a. den Zugang zu Agora, den Registrierungsprozess, das Teilen von Daten, das Rollen- und Rechtekonzept, die Mitwirkungspflichten, die Auswirkung von Pflichtverletzungen undHinweise zum Betrieb:
         
         <a href="https://agora-oegd.de/s/sD8NBTEsytJ6Agq" target="_blank">Agora Nutzungsbedingungen</a>.
     </div>
     <form class="form-actions" action="${url.loginAction}" method="POST">
         <input class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonLargeClass!}" name="accept" id="kc-accept" type="submit" value="${msg("doAccept")}"/>
-        <input class="${properties.kcButtonClass!} ${properties.kcButtonDefaultClass!} ${properties.kcButtonLargeClass!}" name="cancel" id="kc-decline" type="submit" value="${msg("doDecline")}"/>
     </form>
     <div class="clearfix"></div>
     </#if>
