@@ -18,7 +18,7 @@ services:
       - nextcloud-backend
 
   app:
-    image: ghcr.io/zechmeister/agora/nextcloud:12
+    image: ghcr.io/zechmeister/agora/nextcloud:maps
     hostname: app
     env_file: nextcloud/app/$ENV.env
     volumes:
@@ -41,7 +41,7 @@ services:
     deploy:
       labels:
         - "traefik.enable=true"
-        - "traefik.http.routers.nextcloud.rule=Host(`$HOST`) || Host(`www.$HOST`)"
+        - "traefik.http.routers.nextcloud.rule=Host(`$HOST`) || Host(`www.$HOST`) || Host(`webcheck.$HOST`)"
         - "traefik.http.services.nextcloud.loadbalancer.server.port=80"
         - "traefik.http.routers.nextcloud.tls=true"
         - "traefik.http.routers.nextcloud.tls.certresolver=myresolver"

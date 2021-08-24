@@ -12,7 +12,7 @@ services:
     deploy:
       labels:
         - "traefik.enable=true"
-        - "traefik.http.routers.forum.rule=Host(`forum.$HOST`)"
+        - "traefik.http.routers.forum.rule=Host(`forum.$HOST`) || Host(`webcheck.forum.$HOST`)"
         - "traefik.http.services.forum.loadbalancer.server.port=80"
         - "traefik.http.routers.forum.tls=true"
         - "traefik.http.routers.forum.tls.certresolver=myresolver"
