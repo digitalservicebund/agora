@@ -12,7 +12,7 @@ services:
       - key-backend
 
   app:
-    image: ghcr.io/zechmeister/agora/keycloak:30
+    image: ghcr.io/zechmeister/agora/keycloak:32
     env_file: keycloak/app/$ENV.env
     secrets:
       - db_password
