@@ -1,14 +1,14 @@
 <#import "template.ftl" as layout>
 <@layout.registrationLayout displayInfo=false; section>
     <#if section = "header">
-        Umfrage zur ÖGD-weiten Kollaboration
+        Quantitative Umfrage zur ÖGD-weiten Kollaboration vor Nutzung von Agora
     <#elseif section = "form">
     <div id="kc-survey-text">
         <div style="margin-bottom: 20px">
-            Wir würden gerne mehr über Sie und Ihre Zufriedenheit mit der instutionsübergreifenden Zusammenarbeit im ÖGD erfahren. Mit Ihrer Teilnahme helfen Sie uns, bessere Lösungen zu entwickeln.
+            Um zu messen, inwieweit Agora die Kollaboration im ÖGD fördert, möchten wir gerne mehr über Ihre Zufriedenheit im ÖGD erfahren. Eine zweite Umfrage in einigen Monaten ermöglicht es uns, die Ergebnisse vor und nach der Einführung von Agora zu vergleichen.
         </div>
         <div style="margin-bottom: 20px">
-            Die Umfrage dauert nur wenige Minuten und Ihre Teilname ist anonym.
+            Die Umfrage dauert ca. 2 Minuten. Ihre Teilname ist anonym und optional.
         </div>
         <div style="margin-bottom: 10px">
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSfdbSWxSs_124xYq_7Jx_dx5SdLSMlcL4bRKQjp7wo5bA2iew/viewform" class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonLargeClass!}" target="_blank">
