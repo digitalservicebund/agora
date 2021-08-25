@@ -119,7 +119,7 @@
 }
 
 /* hide recommendations */
-#recommendations,
+#filelist-header #recommendations,
 #recommendations-setting-enabled {
   display: none !important;
 }
