@@ -126,13 +126,13 @@
 
 /* prevent overlapping in the contacts app */
 .app-content-list {
-  padding-top: 60px;
+  padding-top: 48px;
 }
 
-/* add spacing around the „close nvaigation“ toggle */
+/* adjust spacing around the „close nvaigation“ toggle */
 .button.app-navigation-toggle[data-v-e24cf7a0] {
-  top: 8px;
-  right: -8px;
+  margin-top: 8px;
+  margin-right: -52px;
 }
 
 /* add spacing to the bottom of the sidebar so when scrolling to the bottom there is enough space between the content and the settings button */
