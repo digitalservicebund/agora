@@ -125,12 +125,12 @@
 }
 
 /* prevent overlapping in the contacts app */
-.app-content-list {
-  padding-top: 48px;
+.app-contacts .app-content-list {
+  padding-top: 58px;
 }
 
-/* adjust spacing around the „close nvaigation“ toggle */
-.button.app-navigation-toggle[data-v-e24cf7a0] {
+/* adjust spacing around the „close navigation“ toggle in contacts app */
+.app-contacts .app-navigation > button.app-navigation-toggle{
   margin-top: 8px;
   margin-right: -52px;
 }
