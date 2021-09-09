@@ -44,7 +44,7 @@ $ docker exec --user www-data -it <NC_APP_CONTAINER> php ./occ config:app:set <N
 
 - settings for Deck-Testphase app:
 ```
-$ docker exec --user www-data -it <NC_APP_CONTAINER> php ./occ config:app:set deck enabled --value="[\"\/Organisation\/DigitalService4Germany\",\"\/GA\/Nordrhein-Westfalen\/Herford\",\"\/GA\/Thueringen\/Kyffhäuserkreis\",\"\/GA\/Baden-Wuerttemberg\/Neckar-Odenwald-Kreis\"]"
+$ docker exec --user www-data -it <NC_APP_CONTAINER> php ./occ config:app:set deck enabled --value="[\"\/Organisation\/DigitalService4Germany\",\"\/GA\/Nordrhein-Westfalen\/Herford\",\"\/GA\/Thueringen\/Kyffhäuserkreis\",\"\/GA\/Baden-Wuerttemberg\/Neckar-Odenwald-Kreis\",\"\/GA\/Berlin\/Steglitz-Zehlendorf\"]"
 ```
 
 
