@@ -4,6 +4,11 @@ consisting of
 
 # Set up swarm
 
+```
+$ docker swarm init --advertise-addr <mangers' IP>
+
+```
+
 ## make ingress encrypted:
 
 ```
