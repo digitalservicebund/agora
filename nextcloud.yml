@@ -18,7 +18,7 @@ services:
       - nextcloud-backend
 
   app:
-    image: ghcr.io/zechmeister/agora/nextcloud:12
+    image: ghcr.io/zechmeister/agora/nextcloud:13
     hostname: app
     env_file: nextcloud/app/$ENV.env
     volumes:
