@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - 'nextcloud/Dockerfile'
-      - 'nextcloud/contacts_renaming'
+      - 'nextcloud/contacts_renaming/**'
   workflow_dispatch:
 
 jobs:
