@@ -56,7 +56,7 @@ public class AgoraWelcomeProvider implements EventListenerProvider {
 			String emailPlainContent = "Hallo " + newUser.getFirstName() + " " + newUser.getLastName() + "," + "\n\n" + 
       													 "ein Agora-Konto wurde für Sie angelegt." + "\n\n" + 
       													 "Um die Registrierung abzuschließen, klicken Sie bitte auf den folgenden Link: " + "\n\n" + 
-      													 link + " " + 
+      													 link + "\n\n" +
       													 "Der Link ist einen Monat gültig. Sollte der Link nicht mehr gültig sein, wenden Sie sich bitte an die Administrator:innen in Ihrer Behörede bzw. Organisation." + "\n\n" + 
       													 "Agora-Kollaborationsplattform: https://agora-oegd.de" + "\n" +
       													 "Tutorials: https://einrichtung.agora-oegd.de/tutorials?utm_source=anmeldung&utm_medium=email Passwort: kollaboration" + "\n" +
