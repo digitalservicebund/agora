@@ -81,7 +81,7 @@ public class AgoraWelcomeProvider implements EventListenerProvider {
       
 			DefaultEmailSenderProvider senderProvider = new DefaultEmailSenderProvider(session);
       try {
-          senderProvider.send(realm.getSmtpConfig(), newUser, "Agora-Registrierungslink", emailPlainContent, emailHtmlContent);
+          senderProvider.send(realm.getSmtpConfig(), newUser, "Agora-Registrierungslink", emailPlainContent, null);
       } catch (EmailException e) {
           System.out.println("Failed to send welcome email");
       }
