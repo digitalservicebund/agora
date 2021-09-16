@@ -7,7 +7,7 @@ COPY extensions/survey-required-action /home/app
 RUN mvn clean install -f /home/app
 
 
-FROM jboss/keycloak:15.0.0
+FROM jboss/keycloak:15.0.2
 LABEL org.opencontainers.image.source https://github.com/zechmeister/agora
 
 COPY agora_theme /opt/jboss/keycloak/themes/agora
