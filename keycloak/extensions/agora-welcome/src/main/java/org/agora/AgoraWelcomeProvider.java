@@ -54,12 +54,12 @@ public class AgoraWelcomeProvider implements EventListenerProvider {
 
 
 			String emailPlainContent = "Hallo " + newUser.getFirstName() + " " + newUser.getLastName() + "," + "\n\n" + 
-																 "ein Agora-Konto wurde für Sie angelegt. Der Link ist einen Monat gültig. Sollte der Link nicht mehr gültig sein, wenden Sie sich bitte an die Administrator:innen in Ihrer Behörede bzw. Organisation." + "\n\n" + 
+																 "ein Agora-Konto wurde für Sie angelegt. Der Link ist einen Monat gültig. Sollte der Link nicht mehr gültig sein, wenden Sie sich bitte an die Administrator:innen in Ihrer Behörde bzw. Organisation." + "\n\n" + 
 																 "Um die Registrierung abzuschließen, klicken Sie bitte auf den folgenden Link oder kopieren Sie ihn ggf. in Ihren Browser: " + "\n\n" + 
 																 link + "\n\n" +
-																 "Agora-Kollaborationsplattform: https://agora-oegd.de?utm_source=registrierungsemail" + "\n" +
+																 "Agora-Kollaborationsplattform: https://agora-oegd.de" + "\n" +
 																 "Tutorials: https://einrichtung.agora-oegd.de/tutorials?utm_source=registrierungsemail Passwort: kollaboration" + "\n" +
-																 "Nutzer:innenverwaltung für Administrator:innen: https://agora-oegd.de/nutzerinnenverwaltung?utm_source=registrierungsemail" + "\n\n" +
+																 "Nutzer:innenverwaltung für Administrator:innen: https://agora-oegd.de/nutzerinnenverwaltung" + "\n\n" +
 																 "Agora — die ÖGD-Kollaborationsplattform" + "\n" +
 																 "Ihre Amtsleitung hat uns gebeten, die Kollaborationsplattform Agora in Ihrem Gesundheitsamt einzurichten. Agora vereinfacht den internen, regionalen als auch länderübergreifenden Wissensaustausch und die Zusammenarbeit im Öffentlichen Gesundheitsdienst. Weitere Informationen zu Agora finden Sie unter: https://einrichtung.agora-oegd.de/?utm_source=anmeldung&utm_medium=email (Passwort: kollaboration)" + "\n\n" + 
 																 "Viele Grüße" + "\n" +
@@ -73,7 +73,7 @@ public class AgoraWelcomeProvider implements EventListenerProvider {
 			//                          "<li>Nutzer:innenverwaltung für Administrator:innen: <a href=\"https://agora-oegd.de/nutzerinnenverwaltung?utm_source=registrierungsemail\">agora-oegd.de/nutzerinnenverwaltung</a></li></ul>" +
 			//                          "<p><b>Agora — die ÖGD-Kollaborationsplattform</b><br />" + 
 			//                          "Ihre Amtsleitung hat uns gebeten, die Kollaborationsplattform Agora in Ihrem Gesundheitsamt einzurichten. Agora vereinfacht den internen, regionalen als auch länderübergreifenden Wissensaustausch und die Zusammenarbeit im Öffentlichen Gesundheitsdienst. Weitere Informationen zu Agora finden Sie unter: <a href=\"https://einrichtung.agora-oegd.de/agora?utm_source=Presentation&utm_medium=social\">einrichtung.agora-oegd.de</a> Passwort: <u>kollaboration</u>.</p>" + 
-			 //                         "<p>Viele Grüße<br />" + 
+			//													"<p>Viele Grüße<br />" + 
 			//                          "Ihr Agora-Team</p>";
 
 			
