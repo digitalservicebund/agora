@@ -49,42 +49,42 @@ public class AgoraWelcomeProvider implements EventListenerProvider {
 
 			// create link
 			UriBuilder builder = LoginActionsService.actionTokenProcessor(session.getContext().getUri());
-      builder.queryParam("key", token.serialize(session, realm, session.getContext().getUri()));
-      String link = builder.build(realm.getName()).toString();
+			builder.queryParam("key", token.serialize(session, realm, session.getContext().getUri()));
+			String link = builder.build(realm.getName()).toString();
 
 
 			String emailPlainContent = "Hallo " + newUser.getFirstName() + " " + newUser.getLastName() + "," + "\n\n" + 
-      													 "ein Agora-Konto wurde für Sie angelegt." + "\n\n" + 
-      													 "Um die Registrierung abzuschließen, klicken Sie bitte auf den folgenden Link: " + "\n\n" + 
-      													 link + "\n\n" +
-      													 "Der Link ist einen Monat gültig. Sollte der Link nicht mehr gültig sein, wenden Sie sich bitte an die Administrator:innen in Ihrer Behörede bzw. Organisation." + "\n\n" + 
-      													 "Agora-Kollaborationsplattform: https://agora-oegd.de?utm_source=registrierungsemail" + "\n" +
-      													 "Tutorials: https://einrichtung.agora-oegd.de/tutorials?utm_source=registrierungsemail Passwort: kollaboration" + "\n" +
-      													 "Nutzer:innenverwaltung für Administrator:innen: https://agora-oegd.de/nutzerinnenverwaltung?utm_source=registrierungsemail" + "\n\n" +
-													 			 "Agora — die ÖGD-Kollaborationsplattform" + "\n" +
-      													 "Ihre Amtsleitung hat uns gebeten, die Kollaborationsplattform Agora in Ihrem Gesundheitsamt einzurichten. Agora vereinfacht den internen, regionalen als auch länderübergreifenden Wissensaustausch und die Zusammenarbeit im Öffentlichen Gesundheitsdienst. Weitere Informationen zu Agora finden Sie unter: https://einrichtung.agora-oegd.de/?utm_source=anmeldung&utm_medium=email (Passwort: kollaboration)" + "\n\n" + 
-      													 "Viele Grüße" + "\n" +
-      													 "Ihr Agora-Team";
+																 "ein Agora-Konto wurde für Sie angelegt." + "\n\n" + 
+																 "Um die Registrierung abzuschließen, klicken Sie bitte auf den folgenden Link (oder kopieren Sie ihn ggf. in Ihren Browser): " + "\n\n" + 
+																 link + "\n\n" +
+																 "Der Link ist einen Monat gültig. Sollte der Link nicht mehr gültig sein, wenden Sie sich bitte an die Administrator:innen in Ihrer Behörede bzw. Organisation." + "\n\n" + 
+																 "Agora-Kollaborationsplattform: https://agora-oegd.de?utm_source=registrierungsemail" + "\n" +
+																 "Tutorials: https://einrichtung.agora-oegd.de/tutorials?utm_source=registrierungsemail Passwort: kollaboration" + "\n" +
+																 "Nutzer:innenverwaltung für Administrator:innen: https://agora-oegd.de/nutzerinnenverwaltung?utm_source=registrierungsemail" + "\n\n" +
+																 "Agora — die ÖGD-Kollaborationsplattform" + "\n" +
+																 "Ihre Amtsleitung hat uns gebeten, die Kollaborationsplattform Agora in Ihrem Gesundheitsamt einzurichten. Agora vereinfacht den internen, regionalen als auch länderübergreifenden Wissensaustausch und die Zusammenarbeit im Öffentlichen Gesundheitsdienst. Weitere Informationen zu Agora finden Sie unter: https://einrichtung.agora-oegd.de/?utm_source=anmeldung&utm_medium=email (Passwort: kollaboration)" + "\n\n" + 
+																 "Viele Grüße" + "\n" +
+																 "Ihr Agora-Team";
 
-      String emailHtmlContent = "<h2>Hallo " + newUser.getFirstName() + " " + newUser.getLastName() + ",</h2>" + 
-      													"<p>ein Agora-Konto wurde für Sie angelegt. Um die Registrierung abzuschließen, klicken Sie bitte auf den folgenden Link:</p>" + 
-      													"<table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" style=\"margin: 2.3em 0;\"><tr><td align=\"center\"><a href=\"" + link + "\" style=\"display: box; color: white; font-size: 1.1em; background-color: #003F97; padding: 12px 70px; text-decoration: none; border-radius: 10px;\">Für Agora Registrieren</a></td></tr></table>" + 
-      													"<p>Der Link ist einen Monat gültig. Sollte der Link nicht mehr gültig sein, wenden Sie sich bitte an die Administrator:innen in Ihrer Behörede bzw. Organisation.</p>" + 
-      													"<ul><li>Agora-Kollaborationsplattform: <a href=\"https://agora-oegd.de?utm_source=registrierungsemail\">agora-oegd.de</a></li>" + 
-      													"<li>Tutorials: <a href=\"https://einrichtung.agora-oegd.de/tutorials?utm_source=registrierungsemail\">einrichtung.agora-oegd.de/tutorials</a> Passwort: <u>kollaboration</u></li>" + 
-      													"<li>Nutzer:innenverwaltung für Administrator:innen: <a href=\"https://agora-oegd.de/nutzerinnenverwaltung?utm_source=registrierungsemail\">agora-oegd.de/nutzerinnenverwaltung</a></li></ul>" +
-      													"<p><b>Agora — die ÖGD-Kollaborationsplattform</b><br />" + 
-      													"Ihre Amtsleitung hat uns gebeten, die Kollaborationsplattform Agora in Ihrem Gesundheitsamt einzurichten. Agora vereinfacht den internen, regionalen als auch länderübergreifenden Wissensaustausch und die Zusammenarbeit im Öffentlichen Gesundheitsdienst. Weitere Informationen zu Agora finden Sie unter: <a href=\"https://einrichtung.agora-oegd.de/agora?utm_source=Presentation&utm_medium=social\">einrichtung.agora-oegd.de</a> Passwort: <u>kollaboration</u>.</p>" + 
-	      												"<p>Viele Grüße<br />" + 
-      													"Ihr Agora-Team</p>";
+			// String emailHtmlContent = "<h2>Hallo " + newUser.getFirstName() + " " + newUser.getLastName() + ",</h2>" + 
+			//                          "<p>ein Agora-Konto wurde für Sie angelegt. Um die Registrierung abzuschließen, klicken Sie bitte auf den folgenden Link:</p>" + 
+			//                          "<table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" style=\"margin: 2.3em 0;\"><tr><td align=\"center\"><a href=\"" + link + "\" style=\"display: box; color: white; font-size: 1.1em; background-color: #003F97; padding: 12px 70px; text-decoration: none; border-radius: 10px;\">Für Agora Registrieren</a></td></tr></table>" + 
+			//                          "<p>Der Link ist einen Monat gültig. Sollte der Link nicht mehr gültig sein, wenden Sie sich bitte an die Administrator:innen in Ihrer Behörede bzw. Organisation.</p>" + 
+			//                          "<ul><li>Agora-Kollaborationsplattform: <a href=\"https://agora-oegd.de?utm_source=registrierungsemail\">agora-oegd.de</a></li>" + 
+			//                          "<li>Tutorials: <a href=\"https://einrichtung.agora-oegd.de/tutorials?utm_source=registrierungsemail\">einrichtung.agora-oegd.de/tutorials</a> Passwort: <u>kollaboration</u></li>" + 
+			//                          "<li>Nutzer:innenverwaltung für Administrator:innen: <a href=\"https://agora-oegd.de/nutzerinnenverwaltung?utm_source=registrierungsemail\">agora-oegd.de/nutzerinnenverwaltung</a></li></ul>" +
+			//                          "<p><b>Agora — die ÖGD-Kollaborationsplattform</b><br />" + 
+			//                          "Ihre Amtsleitung hat uns gebeten, die Kollaborationsplattform Agora in Ihrem Gesundheitsamt einzurichten. Agora vereinfacht den internen, regionalen als auch länderübergreifenden Wissensaustausch und die Zusammenarbeit im Öffentlichen Gesundheitsdienst. Weitere Informationen zu Agora finden Sie unter: <a href=\"https://einrichtung.agora-oegd.de/agora?utm_source=Presentation&utm_medium=social\">einrichtung.agora-oegd.de</a> Passwort: <u>kollaboration</u>.</p>" + 
+			 //                         "<p>Viele Grüße<br />" + 
+			//                          "Ihr Agora-Team</p>";
 
-      
+			
 			DefaultEmailSenderProvider senderProvider = new DefaultEmailSenderProvider(session);
-      try {
-          senderProvider.send(realm.getSmtpConfig(), newUser, "Agora-Registrierungslink", emailPlainContent, null);
-      } catch (EmailException e) {
-          System.out.println("Failed to send welcome email");
-      }
+			try {
+					senderProvider.send(realm.getSmtpConfig(), newUser, "Agora-Registrierungslink", emailPlainContent, null);
+			} catch (EmailException e) {
+					System.out.println("Failed to send welcome email");
+			}
 
 		}
 
