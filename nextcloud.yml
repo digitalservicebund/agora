@@ -24,6 +24,7 @@ services:
     volumes:
       - nextcloud-data:/var/www/html
       - nextcloud-apps:/var/www/html/custom_apps
+      - clamav-socket:/var/run/clamav/
     networks:
       - nextcloud-backend
     secrets:
@@ -73,6 +74,13 @@ services:
       - source: oidc-config
         target: /var/www/html/config/oidc.config.php
 
+  antivirus:
+    image: clamav/clamav:0.104
+    volumes: 
+      - clamav-socket:/var/run/clamav/
+      - clamav-db:/var/lib/clamav/
+
+
   # cron:
   #   image: nextcloud:fpm-alpine
   #   hostname: cron
@@ -95,6 +103,9 @@ volumes:
   nextcloud-db:
   nextcloud-data:
   nextcloud-apps:
+  clamav-socket:
+  clamav-db:
+
 
 networks:
   nextcloud-backend:
