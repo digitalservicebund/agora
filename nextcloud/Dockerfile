@@ -13,6 +13,7 @@ ARG CUSTOMCSS_VERSION=1.9.0
 ARG OIDC_VERSION=2.0.4
 ARG EVERYONE_VERSION=0.1.8
 ARG DECK_VERSION=1.4.2
+ARG ANTIVIRUS_VERSION=3.2.2
 
 
 # add welcome app
@@ -51,6 +52,10 @@ RUN curl -fsSL https://github.com/icewind1991/group_everyone/releases/download/v
 # add deck app
 RUN curl -fsSL https://github.com/nextcloud/deck/releases/download/v${DECK_VERSION}/deck.tar.gz --output var/deck.tar.gz && \
 		tar -xzf var/deck.tar.gz -C var/apps 
+
+# add antivirus app
+RUN curl -fsSL https://github.com/nextcloud/files_antivirus/releases/download/v${ANTIVIRUS_VERSION}/files_antivirus.tar.gz --output var/files_antivirus.tar.gz && \
+		tar -xzf var/files_antivirus.tar.gz -C var/apps 
 
 # run script to replace some strings within contacts app
 COPY contacts_renaming /var/contacts_renaming
