@@ -24,9 +24,9 @@ services:
     volumes:
       - nextcloud-data:/var/www/html
       - nextcloud-apps:/var/www/html/custom_apps
-      - clamav-socket:/var/run/clamav/
     networks:
       - nextcloud-backend
+      - nextcloud-av
     secrets:
       - source: agora-config
         target: /var/www/html/config/agora.config.php
@@ -74,11 +74,13 @@ services:
       - source: oidc-config
         target: /var/www/html/config/oidc.config.php
 
-  antivirus:
-    image: clamav/clamav:0.104
+  av:
+    image: mkodockx/docker-clamav:1.0.5-alpine
+    hostname: av
     volumes: 
-      - clamav-socket:/var/run/clamav/
       - clamav-db:/var/lib/clamav/
+    networks:
+      - nextcloud-av
 
 
   # cron:
@@ -109,5 +111,6 @@ volumes:
 
 networks:
   nextcloud-backend:
+  nextcloud-av:
   edge:
     external: true
