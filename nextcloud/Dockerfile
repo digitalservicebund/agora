@@ -14,6 +14,7 @@ ARG OIDC_VERSION=2.0.4
 ARG EVERYONE_VERSION=0.1.8
 ARG DECK_VERSION=1.4.2
 ARG ANTIVIRUS_VERSION=3.2.2
+ARG RICHDOCUMENTS_VERSION=4.1.2
 
 
 # add welcome app
@@ -56,6 +57,11 @@ RUN curl -fsSL https://github.com/nextcloud/deck/releases/download/v${DECK_VERSI
 # add antivirus app
 RUN curl -fsSL https://github.com/nextcloud/files_antivirus/releases/download/v${ANTIVIRUS_VERSION}/files_antivirus.tar.gz --output var/files_antivirus.tar.gz && \
 		tar -xzf var/files_antivirus.tar.gz -C var/apps 
+
+# add richdocuments app
+RUN curl -fsSL https://github.com/nextcloud/richdocuments/releases/download/v${RICHDOCUMENTS_VERSION}/richdocuments.tar.gz --output var/richdocuments.tar.gz && \
+		tar -xzf var/richdocuments.tar.gz -C var/apps 
+
 
 # run script to replace some strings within contacts app
 COPY contacts_renaming /var/contacts_renaming
