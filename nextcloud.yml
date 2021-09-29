@@ -18,7 +18,11 @@ services:
       - nextcloud-backend
 
   app:
+<<<<<<< HEAD
     image: ghcr.io/zechmeister/agora/nextcloud:antivir
+=======
+    image: ghcr.io/zechmeister/agora/nextcloud:collab
+>>>>>>> 8582555 (add collabora service)
     hostname: app
     env_file: nextcloud/app/$ENV.env
     volumes:
@@ -74,6 +78,7 @@ services:
       - source: oidc-config
         target: /var/www/html/config/oidc.config.php
 
+<<<<<<< HEAD
   av:
     image: mkodockx/docker-clamav:1.0.5-alpine
     hostname: av
@@ -82,6 +87,20 @@ services:
     networks:
       - nextcloud-av
 
+=======
+  collabora:
+    image: collabora/code:6.4.11.3
+    env_file: nextcloud/collabora/$ENV.env      
+    deploy:
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.collabora.rule=Host(`collabora.$HOST`)"
+        - "traefik.http.services.collabora.loadbalancer.server.port=9980"
+        - "traefik.http.routers.collabora.tls=true"
+        - "traefik.http.routers.collabora.tls.certresolver=myresolver"
+    networks:
+      - edge
+>>>>>>> 8582555 (add collabora service)
 
   # cron:
   #   image: nextcloud:fpm-alpine
