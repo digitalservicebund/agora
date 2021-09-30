@@ -145,3 +145,9 @@
 .app-talk .participants-search-results > li:last-of-type + div {
   display:  none !important;
 }
+
+/* hide circle within circle setting */
+.app-contacts .circle-details-section__configs > li:last-of-type {
+  display: none;
+}
+
