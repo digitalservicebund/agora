@@ -139,3 +139,9 @@
 .app-navigation__list {
   padding-bottom: 40px;
 }
+
+/* hide circles in new talk rooms */
+.app-talk .participants-search-results > li:last-of-type,
+.app-talk .participants-search-results > li:last-of-type + div {
+  display:  none !important;
+}
