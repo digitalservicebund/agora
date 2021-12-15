@@ -19,65 +19,65 @@ ARG RICHDOCUMENTS_VERSION=4.1.2
 
 # add welcome app
 RUN curl -fsSL https://github.com/eneiluj/welcome/releases/download/v${WELCOME_VERSION}/welcome-${WELCOME_VERSION}.tar.gz --output var/welcome.tar.gz && \
-		mkdir var/apps && \
-		tar -xzf var/welcome.tar.gz -C var/apps 
+	mkdir var/apps && \
+	tar -xzf var/welcome.tar.gz -C var/apps 
 
 # add contacts app
 RUN curl -fsSL https://github.com/nextcloud/contacts/releases/download/v${CONTACTS_VERSION}/contacts.tar.gz --output var/contacts.tar.gz && \
-		tar -xzf var/contacts.tar.gz -C var/apps 
+	tar -xzf var/contacts.tar.gz -C var/apps 
 
 # add collectives app
 RUN curl -fsSL https://gitlab.com/collectivecloud/collectives/uploads/4eb4cf837b69b5f88fdd9eded135f39c/collectives-0.10.22.tar.gz --output var/collectives.tar.gz && \
-		tar -xzf var/collectives.tar.gz -C var/apps 
+	tar -xzf var/collectives.tar.gz -C var/apps 
 
 # add external app
 RUN curl -fsSL https://github.com/nextcloud/external/releases/download/v${EXTERNAL_VERSION}/external-${EXTERNAL_VERSION}.tar.gz --output var/external.tar.gz && \
-		tar -xzf var/external.tar.gz -C var/apps 
+	tar -xzf var/external.tar.gz -C var/apps 
 
 # add spreed/talk app
 RUN curl -fsSL https://github.com/nextcloud-releases/spreed/releases/download/v${SPREED_VERSION}/spreed-${SPREED_VERSION}.tar.gz --output var/spreed.tar.gz && \
-		tar -xzf var/spreed.tar.gz -C var/apps 
+	tar -xzf var/spreed.tar.gz -C var/apps 
 
 # add custom_css app
 RUN curl -fsSL https://github.com/juliushaertl/theming_customcss/releases/download/v${CUSTOMCSS_VERSION}/theming_customcss.tar.gz --output var/theming_customcss.tar.gz && \
-		tar -xzf var/theming_customcss.tar.gz -C var/apps 
+	tar -xzf var/theming_customcss.tar.gz -C var/apps 
 
 # add oidc_login app
 RUN curl -fsSL https://github.com/pulsejet/nextcloud-oidc-login/releases/download/v${OIDC_VERSION}/oidc_login.tar.gz --output var/oidc_login.tar.gz && \
-		tar -xzf var/oidc_login.tar.gz -C var/apps 
+	tar -xzf var/oidc_login.tar.gz -C var/apps 
 
 # add group_everyone app
 RUN curl -fsSL https://github.com/icewind1991/group_everyone/releases/download/v${EVERYONE_VERSION}/group_everyone.tar.gz --output var/group_everyone.tar.gz && \
-		tar -xzf var/group_everyone.tar.gz -C var/apps 
+	tar -xzf var/group_everyone.tar.gz -C var/apps 
 
 # add deck app
 RUN curl -fsSL https://github.com/nextcloud/deck/releases/download/v${DECK_VERSION}/deck.tar.gz --output var/deck.tar.gz && \
-		tar -xzf var/deck.tar.gz -C var/apps 
+	tar -xzf var/deck.tar.gz -C var/apps 
 
 # add antivirus app
 RUN curl -fsSL https://github.com/nextcloud/files_antivirus/releases/download/v${ANTIVIRUS_VERSION}/files_antivirus.tar.gz --output var/files_antivirus.tar.gz && \
-		tar -xzf var/files_antivirus.tar.gz -C var/apps 
+	tar -xzf var/files_antivirus.tar.gz -C var/apps 
 
 # add richdocuments app
 RUN curl -fsSL https://github.com/nextcloud/richdocuments/releases/download/v${RICHDOCUMENTS_VERSION}/richdocuments.tar.gz --output var/richdocuments.tar.gz && \
-		tar -xzf var/richdocuments.tar.gz -C var/apps 
+	tar -xzf var/richdocuments.tar.gz -C var/apps 
 
 
 # run script to replace some strings within contacts app
 COPY contacts_renaming /var/contacts_renaming
 RUN chmod +x /var/contacts_renaming/replace.sh && \
-		/bin/sh /var/contacts_renaming/replace.sh /var/apps
+	/bin/sh /var/contacts_renaming/replace.sh /var/apps
 
 
-FROM nextcloud:22.1-fpm-alpine
+FROM nextcloud:23.fpm-alpine
 
 LABEL org.opencontainers.image.source https://github.com/zechmeister/agora
 ENV PHP_MEMORY_LIMIT 1024M
 
 # forward audit logs to docker log collector
 RUN mkdir /var/www/html/data/ && \
-		touch /var/www/html/data/audit.log && \ 
-		ln -sf /dev/stdout /var/www/html/data/audit.log
+	touch /var/www/html/data/audit.log && \ 
+	ln -sf /dev/stdout /var/www/html/data/audit.log
 
 # tune php-fpm
 ARG MAX_CHILDREN=120
@@ -86,9 +86,9 @@ ARG MIN_SPARE=6
 ARG MAX_SPARE=18
 
 RUN sed -i "s/pm.max_children = 5/pm.max_children = ${MAX_CHILDREN}/g" /usr/local/etc/php-fpm.d/www.conf && \
-		sed -i "s/pm.start_servers = 2/pm.start_servers = ${START_SERVERS}/g" /usr/local/etc/php-fpm.d/www.conf && \
-		sed -i "s/pm.min_spare_servers = 1/pm.min_spare_servers = ${MIN_SPARE}/g" /usr/local/etc/php-fpm.d/www.conf && \
-		sed -i "s/pm.max_spare_servers = 3/pm.max_spare_servers = ${MAX_SPARE}/g" /usr/local/etc/php-fpm.d/www.conf
+	sed -i "s/pm.start_servers = 2/pm.start_servers = ${START_SERVERS}/g" /usr/local/etc/php-fpm.d/www.conf && \
+	sed -i "s/pm.min_spare_servers = 1/pm.min_spare_servers = ${MIN_SPARE}/g" /usr/local/etc/php-fpm.d/www.conf && \
+	sed -i "s/pm.max_spare_servers = 3/pm.max_spare_servers = ${MAX_SPARE}/g" /usr/local/etc/php-fpm.d/www.conf
 
 # copy custom apps 
 COPY --from=app-builder /var/apps/ /var/www/html/custom_apps
