@@ -6,7 +6,7 @@ RUN apt-get update && apt-get install -y curl
 
 ARG WELCOME_VERSION=1.0.1-2-nightly
 ARG CONTACTS_VERSION=4.0.6
-ARG EXTERNAL_VERSION=3.9.0
+ARG EXTERNAL_VERSION=3.10.2
 ARG SPREED_VERSION=13.0.1
 ARG CUSTOMCSS_VERSION=1.10.0
 ARG OIDC_VERSION=2.0.4
@@ -22,18 +22,16 @@ RUN curl -fsSL https://github.com/eneiluj/welcome/releases/download/v${WELCOME_V
 	tar -xzf var/welcome.tar.gz -C var/apps 
 
 # add contacts app
-RUN curl -fsSL https://github.com/nextcloud/contacts/archive/refs/tags/v${CONTACTS_VERSION}.tar.gz --output var/contacts.tar.gz && \
-	tar -xzf var/contacts.tar.gz -C var/apps && \
-	mv var/apps/contacts-${CONTACTS_VERSION} var/apps/contacts
+RUN curl -fsSL https://github.com/nextcloud-releases/contacts/releases/download/v${CONTACTS_VERSION}/contacts.tar.gz --output var/contacts.tar.gz && \
+	tar -xzf var/contacts.tar.gz -C var/apps 
 
 # add external app
-RUN curl -fsSL https://github.com/nextcloud/external/releases/download/v${EXTERNAL_VERSION}/external-${EXTERNAL_VERSION}.tar.gz --output var/external.tar.gz && \
+RUN curl -fsSL https://github.com/nextcloud-releases/external/releases/download/v${EXTERNAL_VERSION}/external-v${EXTERNAL_VERSION}.tar.gz --output var/external.tar.gz && \
 	tar -xzf var/external.tar.gz -C var/apps 
 
 # add spreed/talk app
-RUN curl -fsSL https://github.com/nextcloud/spreed/archive/refs/tags/v${SPREED_VERSION}.tar.gz --output var/spreed.tar.gz && \
-	tar -xzf var/spreed.tar.gz -C var/apps && \
-	mv var/apps/spreed-${SPREED_VERSION} var/apps/spreed
+RUN curl -fsSL https://github.com/nextcloud-releases/spreed/releases/download/v${SPREED_VERSION}/spreed-v${SPREED_VERSION}.tar.gz --output var/spreed.tar.gz && \
+	tar -xzf var/spreed.tar.gz -C var/apps
 
 # add custom_css app
 RUN curl -fsSL https://github.com/juliushaertl/theming_customcss/releases/download/v${CUSTOMCSS_VERSION}/theming_customcss.tar.gz --output var/theming_customcss.tar.gz && \
@@ -48,7 +46,7 @@ RUN curl -fsSL https://github.com/icewind1991/group_everyone/releases/download/v
 	tar -xzf var/group_everyone.tar.gz -C var/apps 
 
 # add deck app
-RUN curl -fsSL https://github.com/nextcloud/deck/releases/download/v${DECK_VERSION}/deck.tar.gz --output var/deck.tar.gz && \
+RUN curl -fsSL https://github.com/nextcloud-releases/deck/releases/download/v${DECK_VERSION}/deck.tar.gz --output var/deck.tar.gz && \
 	tar -xzf var/deck.tar.gz -C var/apps 
 
 # add antivirus app
@@ -56,7 +54,7 @@ RUN curl -fsSL https://github.com/nextcloud/files_antivirus/releases/download/v$
 	tar -xzf var/files_antivirus.tar.gz -C var/apps 
 
 # add richdocuments app
-RUN curl -fsSL https://github.com/nextcloud/richdocuments/releases/download/v${RICHDOCUMENTS_VERSION}/richdocuments.tar.gz --output var/richdocuments.tar.gz && \
+RUN curl -fsSL https://github.com/nextcloud-releases/richdocuments/releases/download/v${RICHDOCUMENTS_VERSION}/richdocuments.tar.gz --output var/richdocuments.tar.gz && \
 	tar -xzf var/richdocuments.tar.gz -C var/apps 
 
 
