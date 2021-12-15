@@ -12,7 +12,7 @@ services:
       - key-backend
 
   app:
-    image: ghcr.io/zechmeister/agora/keycloak:44
+    image: ghcr.io/zechmeister/agora/keycloak:46
     env_file: keycloak/app/$ENV.env
     secrets:
       - db_password
@@ -23,7 +23,7 @@ services:
     deploy:
       labels:
         - "traefik.enable=true"
-        - "traefik.http.routers.keycloak.rule=Host(`nutzerinnenverwaltung.$HOST`) || Host=(`nutzerinverwaltung.$HOST`)"
+        - "traefik.http.routers.keycloak.rule=Host(`nutzerinnenverwaltung.$HOST`) || Host(`nutzerinverwaltung.$HOST`)"
         - "traefik.http.services.keycloak.loadbalancer.server.port=8080"
         - "traefik.http.routers.keycloak.tls=true"
         - "traefik.http.routers.keycloak.tls.certresolver=myresolver"
