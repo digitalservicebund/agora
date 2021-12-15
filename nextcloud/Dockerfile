@@ -69,7 +69,7 @@ RUN chmod +x /var/contacts_renaming/replace.sh && \
 	/bin/sh /var/contacts_renaming/replace.sh /var/apps
 
 
-FROM nextcloud:23.fpm-alpine
+FROM nextcloud:23-fpm-alpine
 
 LABEL org.opencontainers.image.source https://github.com/zechmeister/agora
 ENV PHP_MEMORY_LIMIT 1024M
