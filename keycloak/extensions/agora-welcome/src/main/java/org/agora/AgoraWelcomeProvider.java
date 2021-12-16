@@ -54,7 +54,7 @@ public class AgoraWelcomeProvider implements EventListenerProvider {
 
 
 			String emailPlainContent = "Hallo " + newUser.getFirstName() + " " + newUser.getLastName() + "," + "\n\n" + 
-																 "ein Agora-Konto wurde für Sie angelegt. Der Link ist einen Monat gültig. Sollte der Link nicht mehr gültig sein, wenden Sie sich bitte an die Administrator:innen in Ihrer Behörde bzw. Organisation." + "\n\n" + 
+																 "ein Agora-Konto wurde für Sie angelegt. Der Link ist einen Monat gültig. Sollte der Link nicht mehr gültig sein, wenden Sie sich bitte an die Administrator:innen in Ihrem Gesundheitsamt bzw. Ihrer Organisation." + "\n\n" + 
 																 "Um die Registrierung abzuschließen, klicken Sie bitte auf den folgenden Link oder kopieren Sie ihn ggf. in Ihren Browser: " + "\n\n" + 
 																 link + "\n\n" +
 																 "Agora-Kollaborationsplattform: https://agora-oegd.de" + "\n" +
@@ -66,7 +66,7 @@ public class AgoraWelcomeProvider implements EventListenerProvider {
 																 "Ihr Agora-Team";
 
 			// String emailHtmlContent = "<h2>Hallo " + newUser.getFirstName() + " " + newUser.getLastName() + ",</h2>" + 
-			// 													"<p>ein Agora-Konto wurde für Sie angelegt. Der Link ist einen Monat gültig. Sollte der Link nicht mehr gültig sein, wenden Sie sich bitte an die Administrator:innen in Ihrer Behörede bzw. Organisation. Um die Registrierung abzuschließen, klicken Sie bitte auf den folgenden Link:</p>" + 
+			// 													"<p>ein Agora-Konto wurde für Sie angelegt. Der Link ist einen Monat gültig. Sollte der Link nicht mehr gültig sein, wenden Sie sich bitte an die Administrator:innen in Ihrem Gesundheitsamt bzw. Ihrer Organisation. Um die Registrierung abzuschließen, klicken Sie bitte auf den folgenden Link:</p>" + 
 			// 													"<table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" style=\"margin: 2.3em 0;\"><tr><td align=\"center\"><a href=\"" + link + "\" style=\"display: box; color: white; font-size: 1.1em; background-color: #003F97; padding: 12px 70px; text-decoration: none; border-radius: 10px;\">Für Agora Registrieren</a></td></tr></table>" +
 			// 													"<ul><li>Agora-Kollaborationsplattform: <a href=\"https://agora-oegd.de?utm_source=registrierungsemail\">agora-oegd.de</a></li>" + 
 			// 													"<li>Tutorials: <a href=\"https://einrichtung.agora-oegd.de/tutorials?utm_source=registrierungsemail\">einrichtung.agora-oegd.de/tutorials</a> Passwort: <u>kollaboration</u></li>" + 
