@@ -1,18 +1,6 @@
 #!/bin/sh
 
-set -e
-
-_input() {
-  printf "\033[0;33m%s\033[0m" "$1"
-}
-
-_get_env() {
-  _input "What's the environment? (test, stage, prod): "
-  # check if shit already exists
-  read -r env 
-  _input "What's your host's domain? (including subdomain): "
-  read -r host
-}
+source $(dirname "$0")/utils.sh
 
 _create_conf_file() {
   file=edge/traefik.$env.toml
@@ -45,6 +33,7 @@ _create_conf_file() {
 
   # Todo: check if websecure entry point necessary
 
+  # todo: loop for multiple IPs
   _input "Accept forwarded headers? (y/n) "
   read -r answer
   if [ "$answer" = "y" ]
