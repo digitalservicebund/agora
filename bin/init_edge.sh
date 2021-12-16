@@ -8,22 +8,19 @@ _create_conf_file() {
 
   _input "Log to stdout? (y/n) "
   read -r answer
-  if [ "$answer" = "n" ]
-  then
+  if [ "$answer" = "n" ]; then
     sed -i '' 's|#filePath = "/var/log/traefik.log"|filePath = "/var/log/traefik.log"|g' $file
   fi
 
   _input "Keep access logs? (y/n) "
   read -r answer
-  if [ "$answer" = "y" ]
-  then
+  if [ "$answer" = "y" ]; then
     sed -i '' 's|#filePath = "/var/log/traefik_access.log"|filePath = "/var/log/traefik_access.log"|g' $file
   fi
 
   _input "Enable debugging? (y/n) "
   read -r answer
-  if [ "$answer" = "y" ]
-  then
+  if [ "$answer" = "y" ]; then
     sed -i '' 's|# level = "DEBUG"|level = "DEBUG"|g' $file
     sed -i '' 's|# \[accessLog.fields\]|\[accessLog.fields\]|g' $file
     sed -i '' 's|# 	defaultMode = "keep"| 	defaultMode = "keep"|g' $file
@@ -36,8 +33,7 @@ _create_conf_file() {
   # todo: loop for multiple IPs
   _input "Accept forwarded headers? (y/n) "
   read -r answer
-  if [ "$answer" = "y" ]
-  then
+  if [ "$answer" = "y" ]; then
     _input "Proxy's IP? "
     read -r ip
     sed -i '' 's|#\[entryPoints.websecure.forwardedHeaders\]|\[entryPoints.websecure.forwardedHeaders\]|g' $file
@@ -54,7 +50,6 @@ _create_conf_file
 
 _input "Deploy stack? (y/n) "
 read -r answer
-if [ "$answer" = "y" ]
-then
+if [ "$answer" = "y" ]; then
   env ENV=$env HOST=$host docker stack deploy -c edge.yml edge
 fi

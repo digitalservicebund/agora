@@ -5,3 +5,6 @@
 
 # wiki
 wiki/secrets/db_password.txt
+
+# scripting
+local.env

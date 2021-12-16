@@ -2,8 +2,7 @@
 
 container_id=$(docker ps -qf "name=nextcloud_app")
 
-if [ $1 ] 
-then
+if [ $1 ]; then
   username=$1
 else
   echo username?
