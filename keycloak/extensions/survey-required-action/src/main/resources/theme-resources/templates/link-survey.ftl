@@ -1,7 +1,7 @@
 <#import "template.ftl" as layout>
 <@layout.registrationLayout displayInfo=false; section>
     <#if section = "header">
-        Anonyme und quantitative Umfrage zur ÖGD-weiten Kollaboration vor der Nutzung von Agora
+        Quantitative und anonyme Umfrage zur ÖGD-weiten Kollaboration vor der Nutzung von Agora
     <#elseif section = "form">
     <div id="kc-survey-text">
         <div style="margin-bottom: 20px">
