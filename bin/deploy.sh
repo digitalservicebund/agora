@@ -10,6 +10,7 @@ if [ $1 ]; then
       "nextcloud"|"nc")
         container=$(docker ps -qf "name=nextcloud_app")
 
+        # make this reusable?
         if [ $container ]; then
           _input "nextcloud is already running. Remove stack first? (y/n) "
           read -r answer

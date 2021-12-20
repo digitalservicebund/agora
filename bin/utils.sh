@@ -7,7 +7,7 @@ _input() {
 }
 
 _get_env() {
-  CONF_FILE=bin/local.env
+  CONF_FILE=bin/.env
 
   if [ -f "$CONF_FILE" ]; then
     source $CONF_FILE
