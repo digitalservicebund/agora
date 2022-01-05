@@ -3,15 +3,15 @@ name: Agora-MediaWiki
 on:
   push:
     paths:
-      - 'wiki/Dockerfile'
-      - 'wiki/agora.ini'
+      - "wiki/Dockerfile"
+      - "wiki/agora.ini"
+      - ".github/workflows/wiki-image.yml"
   workflow_dispatch:
 
 jobs:
   agora-wiki:
     runs-on: ubuntu-latest
     steps:
-
       - name: Login to ghcr.io
         uses: docker/login-action@v1
         with:
@@ -24,7 +24,7 @@ jobs:
 
       - name: Build & push
         uses: docker/build-push-action@v2
-        with: 
+        with:
           context: ./wiki
           push: true
           tags: ghcr.io/${{ github.repository }}/wiki:${{ github.run_number }}
