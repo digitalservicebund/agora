@@ -17,14 +17,17 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Checkout
-        uses: actions/checkout@main
-
       - name: Checkout discourse_docker repo
         uses: actions/checkout@master
         with:
           repository: discourse/discourse_docker
 
+      - name: Checkout
+        uses: actions/checkout@main
+        with:
+          path: agora
+
       - name: Copy template
         run: |
           ls
+          ls agora
