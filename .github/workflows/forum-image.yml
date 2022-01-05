@@ -20,7 +20,7 @@ jobs:
       - name: Pull discourse_docker repo
         uses: actions/checkout@master
         with:
-          name: discourse/discourse_docker
+          repository: discourse/discourse_docker
 
       - name: copy template
         run: |
