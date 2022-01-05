@@ -33,3 +33,8 @@ jobs:
         run: |
           cp agora/forum/launcher_template.yml containers/agora.yml
           ls
+
+      - name: Build base image
+        run: |
+          ./launcher bootstrap agora
+          docker image ls
