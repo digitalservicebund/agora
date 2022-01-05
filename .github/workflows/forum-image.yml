@@ -4,6 +4,8 @@ on:
   push:
     paths:
       - "forum/Dockerfile"
+      - "forum/launcher_template.yml"
+      - ".gihub/workflows/forum-image.yml"
   workflow_dispatch:
 
 jobs:
@@ -29,5 +31,5 @@ jobs:
 
       - name: Copy template
         run: |
+          cp agora/forum/launcher_template.yml containers/agora.yml
           ls
-          ls agora
