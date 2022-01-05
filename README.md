@@ -1,40 +1,54 @@
-![Agora](/.github/images/agora_logo.png)
+<h1>
+   <img src="/.github/images/agora_logo.png" width="209" alt="Agora" title="Agora"> 
+</h1>
 
-# Agora
+Agora is a platform for collaboration. Users can connect, share files, chat, discuss and share knowledge. It bundles existing [open source projects](#built-with) with [Nextcloud](https://github.com/nextcloud/server) at its core. This repository aims to show how these applications can be configured in order to present a coherent user experience.
 
-Agora is a platform for collaboration. Users can connect, share files, chat, discuss and share their knowledge.
+We need a setup that can reliably serve several hundred users without operating a kubernetes cluster. This is what worked for us:
 
-## Built with
+### Built (mostly) with
 
-- Nextcloud
-- Discourse
-- MediaWiki
-- Traefik
-- Grafana
+- [Nextcloud](https://github.com/nextcloud/server) - file sharing, chat, contacts
+- [Keycloak](https://github.com/keycloak/keycloak) - identity and access management
+- [Discourse](https://github.com/discourse/discourse) - discussion forum
+- [MediaWiki](https://gerrit.wikimedia.org/g/mediawiki/core) - wiki
+- [Traefik](https://github.com/traefik/traefik) - reverse proxy, load balancing
+- [Grafana](https://github.com/grafana/grafana)/[Loki](https://github.com/grafana/loki) - logging
 
 ## Getting Started
 
 ### Prerequisites
 
-- docker
-- ...
+**docker engine 20.10**
+We use [docker swarm](https://docs.docker.com/engine/swarm/) in combination with traefik. This allows for lightweight container orchestration. If you want to use Logging, also [install the loki-docker-driver plugin](/monitor/README.md#install).
 
 ### Installing
 
-- init script?
+1. set up swarm and networks
 
-# Set up swarm
+automated:
 
+```Shell
+./bin/init_swarm.sh
 ```
-$ docker swarm init --advertise-addr <mangers' IP>
+
+manual:
+
+```Shell
+docker swarm init # --advertise-addr <IP/INTERFACE>
+
+# encrypt ingress
+docker network rm ingress
+docker network create --ingress --driver overlay --opt encrypted ingress
+docker network create --driver overlay --scope swarm --opt encrypted --attachable socket-proxy
+docker network create --driver overlay --scope swarm --opt encrypted --attachable --subnet 10.20.0.0/16 edge
 
 ```
 
 ## make ingress encrypted:
 
 ```
-docker network rm ingress
-docker network create --ingress --driver overlay --opt encrypted ingress
+
 ```
 
 ## we use socket proxy for traefik
