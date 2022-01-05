@@ -1,0 +1,28 @@
+name: Agora-Discourse
+
+on:
+  push:
+    paths:
+      - "forum/Dockerfile"
+  workflow_dispatch:
+
+jobs:
+  agora-forum:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Login to ghcr.io
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Pull discourse_docker repo
+        uses: actions/checkout@master
+        with:
+          name: discourse/discourse_docker
+
+      - name: copy template
+        run: |
+          echo "hello"
+          ls
