@@ -29,12 +29,15 @@ jobs:
         with:
           path: agora
 
-      - name: Copy template
-        run: |
-          cp agora/forum/launcher_template.yml containers/agora.yml
-          ls
-
       - name: Build base image
         run: |
+          cp agora/forum/launcher_template.yml containers/agora.yml
           ./launcher bootstrap agora
           docker image ls
+
+      - name: Build & push finale image
+        uses: docker/build-push-action@v2
+        with:
+          context: ./agora/forum
+          push: true
+          tags: ghcr.io/${{ github.repository }}/forum:${{ github.run_number }}
