@@ -2,9 +2,9 @@ version: "3.8"
 
 services:
   bundle:
-    image: ghcr.io/zechmeister/agora/agora-forum:dev
+    image: ghcr.io/zechmeister/agora/forum:7
     volumes:
-      - data:/shared 
+      - data:/shared
       - logs:/var/log
     networks:
       - edge
@@ -19,7 +19,7 @@ services:
         # Headers for x-frames
         - "traefik.http.middlewares.forumFrame.headers.contentSecurityPolicy=frame-ancestors 'self' https://agora-oegd.de https://*.agora-oegd.de"
         - "traefik.http.routers.forum.middlewares=forumFrame"
-        
+
 volumes:
   data:
   logs:
