@@ -34,8 +34,11 @@ if [ $1 ]; then
       "keycloak"|"kc")
         env ENV=$env HOST=$host docker stack deploy -c keycloak.yml keycloak --with-registry-auth
         ;;
+      "forum")
+        env ENV=$env HOST=$host docker stack deploy -c forum.yml forum --with-registry-auth
+        ;;
       *)
-        _input "choose service from: nextcloud, edge, keycloak ..."
+        _input "choose service from: nextcloud, edge, keycloak, forum ..."
         ;;
     esac
   done
