@@ -7,6 +7,8 @@ on:
       - "forum/launcher_template.yml"
       - ".github/workflows/forum-image.yml"
   workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * *"
 
 jobs:
   agora-forum:
@@ -40,4 +42,6 @@ jobs:
         with:
           context: ./agora/forum
           push: true
-          tags: ghcr.io/${{ github.repository }}/forum:${{ github.run_number }}
+          tags:
+            - ghcr.io/${{ github.repository }}/forum:${{ github.run_number }}
+            - ghcr.io/${{ github.repository }}/forum:latest
