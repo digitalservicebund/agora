@@ -42,6 +42,4 @@ jobs:
         with:
           context: ./agora/forum
           push: true
-          tags:
-            - ghcr.io/${{ github.repository }}/forum:${{ github.run_number }}
-            - ghcr.io/${{ github.repository }}/forum:latest
+          tags: ghcr.io/${{ github.repository }}/forum:${{ github.run_number }}, ghcr.io/${{ github.repository }}/forum:latest
