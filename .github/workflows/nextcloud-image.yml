@@ -7,6 +7,8 @@ on:
       - "nextcloud/contacts_renaming/**"
       - ".github/workflows/nextcloud-image.yml"
   workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * *"
 
 jobs:
   agora-nextcloud:
@@ -28,3 +30,12 @@ jobs:
           context: ./nextcloud
           push: true
           tags: ghcr.io/${{ github.repository }}/nextcloud:${{ github.run_number }}
+
+      - name: Deploy to test
+        # if: github.event.schedule == '0 0 * * *'
+        uses: sagebind/docker-swarm-deploy-action@v2
+        with:
+          remote_host: ssh://root@test.agora-oegd.de
+          ssh_private_key: ${{ secrets.DOCKER_SSH_PRIVATE_KEY }}
+          ssh_public_key: ${{ secrets.DOCKER_SSH_PUBLIC_KEY }}
+          args: stack deploy -c nextcloud.yml nextcloud --with-registry-auth
