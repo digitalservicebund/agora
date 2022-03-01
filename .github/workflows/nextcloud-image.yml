@@ -33,9 +33,6 @@ jobs:
 
       - name: Deploy to test
         # if: github.event.schedule == '0 0 * * *'
-        uses: sagebind/docker-swarm-deploy-action@v2
+        uses: zechmeister/swarm-deploy-action
         with:
-          remote_host: ssh://root@test.agora-oegd.de
-          ssh_private_key: ${{ secrets.DOCKER_SSH_PRIVATE_KEY }}
-          ssh_public_key: ${{ secrets.DOCKER_SSH_PUBLIC_KEY }}
-          args: stack deploy -c nextcloud.yml nextcloud --with-registry-auth
+          remote_host: test.agora-oegd.de
