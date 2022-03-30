@@ -15,11 +15,11 @@ if [ $1 ]; then
           mkdir $today
 
           _info "Restore nextcloud_db..."
-          docker run --rm --volumes-from $container -v $(pwd)/$today:/backup ubuntu bash -c "cd /var/lib/mysql && tar xvf /backup/nextcloud-db.tar --strip 3"
+          docker run --rm --volumes-from $container -v $(pwd):/backup ubuntu bash -c "cd /var/lib/mysql && tar xvf /backup/nextcloud-db.tar --strip 3"
 
           _info "Restore nextcloud_data..."
           container=$(docker ps -qf "name=nextcloud_app")
-          docker run --rm --volumes-from $container -v $(pwd)/$today:/backup ubuntu bash -c "cd /var/www/html && tar xvf /backup/nextcloud-data.tar --strip 3"
+          docker run --rm --volumes-from $container -v $(pwd):/backup ubuntu bash -c "cd /var/www/html && tar xvf /backup/nextcloud-data.tar --strip 3"
         else 
           _info "nextcloud is not running. Start the stack first."
         fi
