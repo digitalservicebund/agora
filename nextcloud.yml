@@ -18,7 +18,7 @@ services:
       - nextcloud-backend
 
   app:
-    image: ghcr.io/zechmeister/agora/nextcloud:19
+    image: ghcr.io/zechmeister/agora/nextcloud:20
     hostname: app
     env_file: nextcloud/app/$ENV.env
     volumes:
@@ -75,7 +75,7 @@ services:
         target: /var/www/html/config/oidc.config.php
 
   av:
-    image: mkodockx/docker-clamav:1.0.5-alpine
+    image: mkodockx/docker-clamav:1.0.7-alpine
     hostname: av
     volumes:
       - clamav-db:/var/lib/clamav/
@@ -83,7 +83,7 @@ services:
       - nextcloud-av
 
   collabora:
-    image: collabora/code:6.4.11.3
+    image: collabora/code:21.11.0.5.1
     env_file: nextcloud/collabora/$ENV.env
     deploy:
       labels:
