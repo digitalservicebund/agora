@@ -11,6 +11,18 @@ services:
     networks:
       - key-backend
 
+  stats:
+    image: ubuntu
+    networks:
+      - key-backend
+    entrypoint:
+      [
+        "curl",
+        "-X",
+        "POST",
+        "https://metrics.ds4g.dev:56780/webhook-test/6dc43a6b-c086-4d56-a4e3-01dd10fcc337",
+      ]
+
   app:
     image: ghcr.io/zechmeister/agora/keycloak:50
     env_file: keycloak/app/$ENV.env

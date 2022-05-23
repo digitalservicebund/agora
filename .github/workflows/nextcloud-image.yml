@@ -36,3 +36,4 @@ jobs:
         uses: zechmeister/swarm-deploy@v0.1.1-alpha
         with:
           remote_host: test.agora-oegd.de
+          ssh_public_key: { { secrets. } }

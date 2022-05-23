@@ -50,4 +50,5 @@ jobs:
         with:
           remote_host: ssh://root@test.agora-oegd.de
           ssh_private_key: ${{ secrets.DOCKER_SSH_PRIVATE_KEY }}
+          ssh_public_key: ${{ secrets.DOCKER_SSH_PUBLIC_KEY }}
           args: stack deploy -c forum.yml forum --with-registry-auth

@@ -9,6 +9,8 @@ on:
       - "!keycloak/db/**"
       - ".github/workflows/keycloak-image.yml"
   workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * *"
 
 jobs:
   agora-keycloak:
