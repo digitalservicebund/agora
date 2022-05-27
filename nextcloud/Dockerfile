@@ -22,7 +22,7 @@ RUN curl -fsSL https://github.com/eneiluj/welcome/releases/download/v${WELCOME_V
 	tar -xzf var/welcome.tar.gz -C var/apps 
 
 # add contacts app
-RUN curl -fsSL https://github.com/nextcloud-releases/contacts/releases/download/v${CONTACTS_VERSION}/contacts-${CONTACTS_VERSION}.tar.gz --output var/contacts.tar.gz && \
+RUN curl -fsSL https://github.com/nextcloud-releases/contacts/releases/download/v${CONTACTS_VERSION}/contacts-v${CONTACTS_VERSION}.tar.gz --output var/contacts.tar.gz && \
 	tar -xzf var/contacts.tar.gz -C var/apps 
 
 # add external app
