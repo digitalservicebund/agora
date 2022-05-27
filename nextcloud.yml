@@ -83,7 +83,7 @@ services:
       - nextcloud-av
 
   collabora:
-    image: collabora/code:21.11.5.0.1
+    image: collabora/code:21.11.4.2.1
     env_file: nextcloud/collabora/$ENV.env
     deploy:
       labels:
