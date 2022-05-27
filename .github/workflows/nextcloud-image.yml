@@ -29,4 +29,4 @@ jobs:
         with:
           context: ./nextcloud
           push: true
-          tags: ghcr.io/${{ github.repository }}/nextcloud:${{ github.run_number }} , ghcr.io/${{ github.repository }}/nextcloud:22.2.8-fqm-alpine
+          tags: ghcr.io/${{ github.repository }}/nextcloud:${{ github.run_number }} , ghcr.io/${{ github.repository }}/nextcloud:23.0.5-fqm-alpine

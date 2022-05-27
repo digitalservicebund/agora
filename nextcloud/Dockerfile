@@ -63,9 +63,9 @@ COPY contacts_renaming /var/contacts_renaming
 RUN chmod +x /var/contacts_renaming/replace.sh && \
 	/bin/sh /var/contacts_renaming/replace.sh /var/apps
 
-FROM nextcloud:22.2.8-fpm-alpine
+FROM nextcloud:23.0.5-fpm-alpine
 
-LABEL org.opencontainers.image.source https://github.com/zechmeister/agora22
+LABEL org.opencontainers.image.source https://github.com/zechmeister/agora23
 ENV PHP_MEMORY_LIMIT 1024M
 
 # forward audit logs to docker log collector
