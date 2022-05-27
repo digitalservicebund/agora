@@ -29,7 +29,7 @@ jobs:
         with:
           context: ./nextcloud
           push: true
-          tags: ghcr.io/${{ github.repository }}/nextcloud:${{ github.run_number }}
+          tags: ghcr.io/${{ github.repository }}/nextcloud:${{ github.run_number }}, ghcr.io/${{ github.repository }}/nextcloud:22.1-fqm-alpine
 
       - name: Deploy to test
         # if: github.event.schedule == '0 0 * * *'
