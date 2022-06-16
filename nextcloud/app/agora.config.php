@@ -43,4 +43,7 @@ $CONFIG = array (
   'mail_smtpport' => 'PORT',
   'mail_smtpname' => 'NAME',
   'mail_smtppassword' => 'PASSWORD',
+
+	// disable public profiles
+	'profile.enabled' => false,
 );
