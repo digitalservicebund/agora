@@ -15,17 +15,6 @@ http:
           X-Download-Options: "noopen"
           X-Permitted-Cross-Domain-Policies: "none"
           X-Frame-Options: "SAMEORIGIN"
-    # google:
-    #   redirectregex:
-    #     regex: "^https://$HOST/test"
-    #     replacement: "https://google.com"
-    # redirectRegex:
-    #   regex: "^https://$HOST/test2"
-    #   replacement: "google.com"
-
-    # # /google
-    # - "traefik.http.middlewares.google.redirectregex.regex=^https://$HOST/test"
-    # - "traefik.http.middlewares.google.redirectregex.replacement=https://google.com"
 tls:
   options:
     default:
