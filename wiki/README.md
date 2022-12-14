@@ -1,12 +1,26 @@
-# Setup OIDC
+# Installing
+
+The following files need an updated copy, namespaced with the desired environment:
+
+- [db_password.txt](db_password.txt) (e.g. db_password.test.txt)
+
+deploy the stack (e.g. for test environment):
+
+```Shell
+env ENV=test HOST=test.agora-oegd.de docker stack deploy -c wiki.yml wiki --with-registry-auth
+```
+
+
+## Setup OIDC
 
 - select PluggableAuth during installation
 - select OpenID Connect during installation 
 - select EmbedVideo during installation 
 
-- first without LocalSettings
+- first deploy stack without LocalSettings mounted 
 - remove SQLLite from wizard
 
+## Styling
 - put this into Common.css:
 
 ```
@@ -14,8 +28,9 @@
 #p-navigation { margin-top: 3em; }
 ```
 
+## Videos
 - We use Widget extension to embed Videos
-- (as admin) create Page for Widget:YouTube
+- (as admin) create Page for Widget:YouTube and insert:
 
 ```
 <noinclude>
